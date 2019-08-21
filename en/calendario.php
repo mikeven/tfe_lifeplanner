@@ -12,7 +12,7 @@
     include( "fn/fn-actividad.php" );
 
     checkSession( "" );
-    $titulo_pagina = "Calendario";
+    $titulo_pagina = "Calendar";
 
     $idu = $_SESSION["user"]["id"];
     $breadcrumb = $titulo_pagina;
@@ -31,6 +31,7 @@
 		<link rel="stylesheet" href="../assets/vendor/fullcalendar/fullcalendar.print.css" media="print" />
 		
 		<!-- Theme CSS -->
+		<link rel="stylesheet" href="assets/stylesheets/theme.css" />
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
 		<style type="text/css">
@@ -90,9 +91,15 @@
 			
 		</section>
 
-		<?php include( "secciones/include-js.html" ); ?>
-
+		<script src="../assets/vendor/jquery/jquery.js"></script>
+		<script src="../assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+		<script src="../assets/vendor/bootstrap/js/bootstrap.js"></script>
+		<script src="../assets/vendor/nanoscroller/nanoscroller.js"></script>
+		<script src="../assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 		<script src="../assets/vendor/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+		<script src="../assets/vendor/magnific-popup/magnific-popup.js"></script>
+		<script src="../assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+		<script src="../assets/vendor/jquery-validation/jquery.validate.js"></script>
 		<script src="../assets/vendor/fuelux/js/spinner.js"></script>
 		
 		<!-- Specific Page Vendor -->
@@ -100,13 +107,19 @@
 		<script src="../assets/vendor/jquery-ui-touch-punch/jquery.ui.touch-punch.js"></script>
 		<script src="../assets/vendor/fullcalendar/lib/moment.min.js"></script>
 		<script src="../assets/vendor/fullcalendar/fullcalendar.js"></script>
-		<script src="../assets/vendor/fullcalendar/lang/es.js"></script>
+		<script src="../assets/vendor/fullcalendar/lang/en.js"></script>
+		<script src="../assets/vendor/pnotify/pnotify.custom.js"></script>
 		
 		<!-- Theme Base, Components and Settings -->
 		<script src="../assets/javascripts/theme.js"></script>
 		<script src="../assets/javascripts/ui-elements/examples.modals.js"></script>
-	
+		
+		<!-- Theme Custom -->
+		<!--<script src="assets/javascripts/theme.custom.js"></script>-->
 		<script src="js/fn-acceso.js"></script>
+		
+		<!-- Theme Initialization Files -->
+		<script src="../assets/javascripts/theme.init.js"></script>
 		<script src="js/fn-ui.js"></script>
 		<script src="js/fn-calendario.js"></script>
 		<script src="js/fn-actividad.js"></script>

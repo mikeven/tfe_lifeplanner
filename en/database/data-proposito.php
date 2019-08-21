@@ -101,10 +101,10 @@
 		$rsp = agregarProposito( $dbh, $proposito );
 		if( $rsp != 0 ){
 			$res["exito"] = 1;
-			$res["mje"] = "Propósito registrado con éxito";
+			$res["mje"] = "Purpose created successfully";
 		}else{
 			$res["exito"] = 1;
-			$res["mje"] = "Error al registrar propósito";
+			$res["mje"] = "There was a problem creating purpose";
 		}
 
 		echo json_encode( $res );
@@ -121,10 +121,10 @@
 
 		if( $rsp != 0 ){
 			$res["exito"] = 1;
-			$res["mje"] = "Datos de propósito modificados";
+			$res["mje"] = "Purpose updated successfully";
 		}else{
 			$res["exito"] = 0;
-			$res["mje"] = "Error al editar propósito";
+			$res["mje"] = "There was a problem updating purpose";
 		}
 
 		echo json_encode( $res );
@@ -138,11 +138,11 @@
 		
 		if( registroAsociadoTabla( $dbh, "actividad", "proposito_id", $idp ) ){
 			$res["exito"] = -1;
-			$res["mje"] = "Debe eliminar actividades primero";
+			$res["mje"] = "Activities from purpose must be deleted first";
 		}else{
 			eliminarProposito( $dbh, $idp );
 			$res["exito"] = 1;
-			$res["mje"] = "Propósito eliminado con éxito";
+			$res["mje"] = "Purpose deleted successfully";
 		}
 		echo json_encode( $res );
 	}
