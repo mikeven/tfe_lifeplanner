@@ -3,7 +3,7 @@
 		<form id="frm-nactividad" class="form-horizontal mb-lg">
 			<header class="panel-heading">
 				<h2 class="panel-title">
-					Create activity (<span id="lab_na_prop"></span>)
+					Add activity (<span id="lab_na_prop"></span>)
 				</h2>
 			</header>
 			<div class="panel-body">
