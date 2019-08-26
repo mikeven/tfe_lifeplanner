@@ -42,8 +42,10 @@
 						</div>
 					</div>
 					<hr>
-					<a href="<?php echo $lnk_gestion_pa ?>">
-					Gestionar propósitos y actividades</a>
+					<button type="button" class="mb-xs mt-xs mr-xs btn btn btn-dark">
+						<a href="<?php echo $lnk_gestion_pa ?>">
+						Gestionar propósitos y actividades</a>
+					</button>
 				</div>
 			</div>
 		</div>

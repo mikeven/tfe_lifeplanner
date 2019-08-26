@@ -39,6 +39,9 @@
 			.item_obj{ background-color: #509E2D }
 			.item_pro{ background-color: #2762B7 }
 			.item_act{ background-color: #e25522 }
+			.ley_o{ color: #509E2D; }
+			.ley_p{ color: #2762B7; }
+			.ley_a{ color: #e25522; }
 			.dd-handle{ color: #fff; }
 			.editableicon{ float: right; } 
 			.i_edit_act, .i_edit_prop{ color: #FFF; }
@@ -75,9 +78,12 @@
 								<header class="panel-heading">
 									<h2 class="panel-title">Propósitos - Actividades</h2>
 									<p class="panel-subtitle">
-										<i class="fa fa-puzzle-piece" aria-hidden="true"></i> Objetos | 
-										<i class="fa fa-crosshairs" aria-hidden="true"></i> Propósitos |
-										<i class="fa fa-thumb-tack" aria-hidden="true"></i> Actividades
+										<i class="fa fa-puzzle-piece ley_o" aria-hidden="true"></i> 
+										<span class="ley_o">Objetos</span> | 
+										<i class="fa fa-crosshairs ley_p" aria-hidden="true"></i> 
+										<span class="ley_p">Propósitos</span> |
+										<i class="fa fa-thumb-tack ley_a" aria-hidden="true"></i> 
+										<span class="ley_a">Actividades</span>
 									</p>
 								</header>
 								<div class="panel-body">

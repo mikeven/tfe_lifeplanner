@@ -46,7 +46,7 @@
 								<form id="frm_narea" class="form-horizontal">
 									<input type="hidden" name="idu" value="<?php echo $idu?>">
 									<header class="panel-heading">
-										<h2 class="panel-title">Add area</h2>
+										<h2 class="panel-title">Add an area</h2>
 									</header>
 									<div class="panel-body">
 										<p class="p_inst">Enter a name for a new area</p>

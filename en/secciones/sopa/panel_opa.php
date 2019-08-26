@@ -17,6 +17,8 @@
 				<?php 
 					foreach ( $propositos as $p ) {
 						$actividades = $p["lactividades"];
+						$pendientes = actividadesSinFinalizar( $dbh, $actividades );
+						if( $pendientes ){
 				?>
 				
 					<li class="dd-item" data-id="<?php echo $p['id']?>">
@@ -42,7 +44,7 @@
 						</div>
 						<ol class="dd-list">
 							<?php foreach ( $actividades as $a ) {
-									if( $a["estado"] != "finalizada" ) {
+									if( $a["estado"] == "creada" ) {
 							?>
 								<li class="dd-item" data-id="<?php echo $a['id']?>">
 									<div class="dd-handle item_act">
@@ -83,7 +85,7 @@
 						</ol>
 					</li>
 				
-				<?php } ?>
+				<?php } } ?>
 				
 				<li class="dd-item" data-id="nuevo_proposito">
 					<div class="p-dd-handle nopa">

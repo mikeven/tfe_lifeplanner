@@ -52,7 +52,7 @@
 						<div class="col-md-8 col-sm-8 col-xs-12">
 							<section class="panel">
 								<header class="panel-heading">
-									<h2 class="panel-title">Terminated activities </h2>
+									<h2 class="panel-title">Completed activities</h2>
 								</header>
 								<div id="tabla_actividades_prioridad" class="panel-body">
 									<table id="datatable-historial"
