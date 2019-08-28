@@ -86,6 +86,7 @@
 		foreach ( $actividades as $a ) {
 			if( $a["estado"] == "creada" ) $finalizadas = true;
 		}
+		if( count( $actividades ) == 0 ) $finalizadas = true;
 
 		return $finalizadas;
 	}
