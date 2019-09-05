@@ -1,0 +1,1 @@
+[05-Sep-2019 19:02:29 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home4/mgideasn/public_html/tfe/en/database/data-usuario.php on line 13

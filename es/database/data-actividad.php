@@ -109,7 +109,7 @@
 		from sujeto_objeto so, sujeto s, objeto o, usuario u, actividad a, proposito p, sesion ss 
 		where s.id = so.sujeto_id and o.id = so.objeto_id and p.sujeto_objeto_id = so.id 
 		and a.proposito_id = p.id and a.estado = 'finalizada' and so.sesion_id = ss.id 
-		and ss.usuario_id = u.id and u.id = $idu ORDER BY a.fecha_calendario DESC";
+		and ss.usuario_id = u.id and u.id = $idu ORDER BY s.nombre ASC";
 
 		return obtenerListaRegistros( mysqli_query( $dbh, $q ) );
 	}

@@ -99,6 +99,7 @@
 		</section>
 
 		<?php include( "secciones/include-js.html" ); ?>
+		<script src="js/init.modals.js"></script>
 		
 		<script src="js/fn-ui.js"></script>
 		<script src="js/fn-acceso.js"></script>

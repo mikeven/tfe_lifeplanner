@@ -94,7 +94,7 @@
 							<p class="subt_accion panel-subtitle">Set activity as terminated</p>
 							<a id="finalizar_act" href="#!">
 								<button type="button" class="btn btn-success">
-									<i class="fa fa-check"></i> Terminate
+									<i class="fa fa-check"></i> Completed
 								</button>
 							</a>
 						</div>
