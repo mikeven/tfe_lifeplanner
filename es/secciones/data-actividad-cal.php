@@ -11,6 +11,17 @@
 			<div class="widget-summary">
 				<div class="widget-summary-col">
 					<div class="summary">
+						<div class="info">
+							<i class="fa fa-flag-o"></i>
+							<strong >Sujeto:</strong>
+							<span id="tx_sujeto_act"> </span>
+						</div>
+
+						<div class="info">
+							<i class="fa fa-puzzle-piece"></i>
+							<strong >Objeto:</strong>
+							<span id="tx_objeto_act"> </span>
+						</div>
 			
 						<div class="info">
 							<i class="fa fa-crosshairs"></i>

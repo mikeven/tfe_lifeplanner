@@ -388,6 +388,8 @@ function resetPanelDesagendar(){
 function mostrarDatosVentanaCalendario( actividad ){
     // Muestra los datos de una actividad en la ventana emergente de calendario
     resetPanelDesagendar();
+    $("#tx_sujeto_act").html( actividad.nsujeto );
+    $("#tx_objeto_act").html( actividad.nobjeto );
     mostrarDatosPanelActividad( actividad );
 }
 /* --------------------------------------------------------- */

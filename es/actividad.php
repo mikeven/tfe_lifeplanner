@@ -53,6 +53,7 @@
 
 			.accord_act_cont{ margin-left: 25px; }
 			#act_prioridad, #act_agendada{ float: right; color: yellow; }
+			.btn_gpa a{ color: #FFF; }
 
 		</style>
 	</head>

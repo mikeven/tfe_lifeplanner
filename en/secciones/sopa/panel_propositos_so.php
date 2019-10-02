@@ -2,7 +2,7 @@
 	<header class="panel-heading">
 		<h2 class="panel-title">
 			<i class="fa fa-crosshairs"></i> |
-			<strong >Purposes</strong>
+			<strong >Select priorities</strong>
 		</h2>
 	</header>					
 	<div class="panel-body">
@@ -46,7 +46,7 @@
 						</div>
 					</div>
 					<hr>
-					<button type="button" class="mb-xs mt-xs mr-xs btn btn btn-dark">
+					<button type="button" class="btn_gpa mb-xs mt-xs mr-xs btn btn-primary">
 						<a href="<?php echo $lnk_gestion_pa ?>">
 						Manage purposes and activities</a>
 					</button>
