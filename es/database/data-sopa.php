@@ -43,7 +43,7 @@
 		// Devuelve verdadero si hay actividades en estado: creadas, prioridad
 		$pendiente = false;
 		foreach ( $actividades as $a ) {
-			if( $a["estado"] == "creada" || $a["estado"] == "prioridad" ){
+			if( $a["estado"] == "creada" /*|| $a["estado"] == "prioridad"*/ ){
 				$pendiente = true;
 				break;
 			}
