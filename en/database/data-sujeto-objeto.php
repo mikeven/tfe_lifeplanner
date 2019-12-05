@@ -121,6 +121,13 @@
 		return $idss;
 	}
 	/* --------------------------------------------------------- */
+	function eliminarSO( $dbh, $id ){
+		// Elimina un registro de Sujeto - Objeto
+		$q = "delete from sujeto_objeto where id = $id";
+		
+		return mysqli_query( $dbh, $q );
+	}
+	/* --------------------------------------------------------- */
 	// Nuevo registro Sujeto - Objeto
 	if( isset( $_POST["n_sub_obj"] ) ){ 
 		// Invocación desde: js/fn-proposito.js
@@ -144,7 +151,7 @@
 					$res["mje"] = "There was a problem creating subject-object record";
 			}
 			else 
-				$res["mje"] = "Subject-objecto record already exists in this session";
+				$res["mje"] = "Subject-object record already exists in this session";
 			
 		}else
 			$res["mje"] = "There was a problem saving subject-object session";
@@ -155,18 +162,20 @@
 	}
 	
 	/* --------------------------------------------------------- */
+	// Eliminar registro Sujeto - Objeto
 	if( isset( $_POST["elim_s_o"] ) ){
-		// Invocación desde: js/fn-area.js
-		include( "bd.php" );	
-		
-		//registrosAsociadosLinea( $dbh, $_POST["id_elimlinea"] )
-		if( false ){
+		// Invocación desde: js/fn-sujeto-objeto.js
+		include( "bd.php" );
+		include( "data-proposito.php" );	
+	
+		$propositos = obtenerListaPropositos( $dbh, $_POST["elim_s_o"] );
+		if( count( $propositos ) > 0 ){
 			$res["exito"] = -1;
-			$res["mje"] = "Records linked to area must be deleted first";
+			$res["mje"] = "Purposes from this subject-object must be deleted first.";
 		}else{
-			eliminarSO( $dbh, $_POST["elim_area"] );
+			eliminarSO( $dbh, $_POST["elim_s_o"] );
 			$res["exito"] = 1;
-			$res["mje"] = "Area deleted successfully";
+			$res["mje"] = "Suject-Object deleted successfully";
 		}
 		echo json_encode( $res );
 	}

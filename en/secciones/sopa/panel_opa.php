@@ -11,7 +11,18 @@
 				<span class="icon_obj">
 					<i class="fa fa-puzzle-piece" aria-hidden="true"></i>
 				</span> | <?php echo $o["nombre"]?>
+				<div class="editableicon">
+					<?php if( count( $propositos ) == 0 ) { ?> 
+					<a href="#confirmar-accion" 
+					class="modal-sizes modal-with-zoom-anim elim_so" 
+					data-idso="<?php echo $so["id_so"] ?>"
+					data-desc="<?php echo $so['nobjeto']." - ".$so['nsujeto'];?>">
+						<i class="fa fa-times" aria-hidden="true"></i>
+					</a>
+					<?php } ?> 
+				</div>
 			</div>
+
 			<ol class="dd-list">
 				
 				<?php 

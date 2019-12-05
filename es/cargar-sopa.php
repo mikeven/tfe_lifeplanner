@@ -45,7 +45,7 @@
 			.dd-handle{ color: #fff; }
 			.editableicon{ float: right; } 
 			.i_edit_act, .i_edit_prop{ color: #FFF; }
-			.elim_actividad, .elim_prop{ color: #fff; }
+			.elim_actividad, .elim_prop, .elim_so{ color: #fff; }
 			.elim_prop:hover{ text-decoration: none; }
 		</style>
 	</head>
@@ -89,6 +89,7 @@
 								<div class="panel-body">
 									<?php include( "secciones/sopa/panel_opa.php" ); ?>
 								</div>
+								<input type="hidden" id="id-so-elim" value="">
 								<input type="hidden" id="id-actividad-e" value="">			
 								<input type="hidden" id="id-proposito-e" value="">
 							</section>

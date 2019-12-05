@@ -89,6 +89,7 @@
 								<div class="panel-body">
 									<?php include( "secciones/sopa/panel_opa.php" ); ?>
 								</div>
+								<input type="hidden" id="id-so-elim" value="">
 								<input type="hidden" id="id-actividad-e" value="">			
 								<input type="hidden" id="id-proposito-e" value="">
 							</section>

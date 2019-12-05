@@ -35,6 +35,19 @@
     /* --------------------------------------------------------- */
     /* Inits */
     /* --------------------------------------------------------- */
+
+    $("#arbol_opa").on( "click", ".elim_so", function(){
+        // Evento de ventana modal para confirmar la eliminación de sujeto - objeto
+        $("#id-so-elim").val( $(this).attr( "data-idso" ) );
+        var p = $(this).attr( "data-desc" );
+        iniciarBotonBorrarSujetoObjeto( p );
+    });
+
+    $(document).on( 'click', '#btn_borrar_so', function(){
+        $("#btn_canc").click();
+        eliminarSujetoObjeto( $("#id-so-elim").val() );
+    });
+
     $("#lareas").on( "change", function(){
         // Evento para invocar el llenado de la lista de sujetos según área seleccionada
         var idarea = $(this).val();
@@ -62,6 +75,14 @@ function cargarOpcionesLista( regs, idlista ){
     });
 
     $( lista ).appendTo( idlista );
+}
+/* --------------------------------------------------------- */
+function iniciarBotonBorrarSujetoObjeto( param ){
+    //Asigna los textos de la ventana de confirmación para borrar un sujeto-objeto
+    iniciarVentanaModal( "btn_borrar_so", "btn_canc", 
+                         "Eliminar " + param, 
+                         "¿Confirma que desea eliminar sujeto - objeto?", 
+                         "Confirmar acción" );
 }
 /* --------------------------------------------------------- */
 function agregarSujetoObjeto(){
@@ -121,6 +142,26 @@ function obtenerObjetosPorSujeto( ids ){
             console.log( response );
             res = jQuery.parseJSON( response );
             cargarOpcionesLista( res, "#lobjetos" );
+        }
+    });
+}
+/* --------------------------------------------------------- */
+function eliminarSujetoObjeto( id ){
+    //Invoca al servidor para eliminar un registro de sujeto-objeto
+    $.ajax({
+        type:"POST",
+        url:"database/data-sujeto-objeto.php",
+        data:{ elim_s_o: id },
+        success: function( response ){
+            console.log( response );
+            res = jQuery.parseJSON(response);
+            if( res.exito == 1 ){ 
+                notificar( "S.O.P.A.", res.mje, "success" );
+                setTimeout( function() { location.reload( true ); }, 3000 );
+            }
+            if( res.exito == -1 ){ 
+                notificar( "S.O.P.A.", res.mje, "error" );
+            }
         }
     });
 }
