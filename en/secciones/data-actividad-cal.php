@@ -13,13 +13,13 @@
 					<div class="summary">
 						<div class="info">
 							<i class="fa fa-flag-o"></i>
-							<strong >Sujeto:</strong>
+							<strong >Subject:</strong>
 							<span id="tx_sujeto_act"> </span>
 						</div>
 
 						<div class="info">
 							<i class="fa fa-puzzle-piece"></i>
-							<strong >Objeto:</strong>
+							<strong >Object:</strong>
 							<span id="tx_objeto_act"> </span>
 						</div>
 			

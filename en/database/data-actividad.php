@@ -69,6 +69,22 @@
 		return obtenerListaRegistros( mysqli_query( $dbh, $q ) );
 	}
 	/* --------------------------------------------------------- */
+	function obtenerActividadesSujetoObjeto( $dbh, $ids, $ido ){
+		// Devuelve las actividades asociadas a un elemento sujeto-objeto indiferente del propósito al que pertenezca
+
+		$q = "select act.id as id_act, act.tipo, act.estado, act.tarea, act.lugar, 
+		act.direccion, act.motivo, act.contacto,   
+		date_format(act.fecha_agenda,'%d/%m/%Y %h:%i %p') as fecha_agendada,
+		date_format(act.fecha_calendario,'%Y-%m-%d %H:%i') as fecha_calendario, 
+		s.id as idsujeto, s.nombre nsujeto, o.id as idobjeto, o.nombre as nobjeto 
+		from actividad act, proposito p, sujeto s, objeto o, sujeto_objeto so, sesion ss 
+		where act.proposito_id = p.id and p.sujeto_objeto_id = so.id 
+		and so.sujeto_id = s.id and so.objeto_id = o.id and so.sesion_id = ss.id 
+		and s.id = $ids and o.id = $ido order by act.fecha_prioridad DESC";
+		
+		return obtenerListaRegistros( mysqli_query( $dbh, $q ) );
+	}
+	/* --------------------------------------------------------- */
 	function obtenerHistorial( $dbh, $idu ){
 		// Devuelve las actividades finalizadas
 
