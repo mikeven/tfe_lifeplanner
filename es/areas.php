@@ -53,9 +53,28 @@
 										
 										<div class="row form-group">
 											<div class="col-lg-12">
-												<input type="text" name="nombre" placeholder="Nombre" class="form-control" required>
+												<input id="areanombre" type="text" name="nombre" placeholder="Nombre" class="form-control" required>
 											</div>
 										</div>
+										<hr>
+										<p class="p_inst">Áreas sugeridas</p>
+
+										<a href="#!" class="sug_area">Salud espiritual</a><br>
+										<a href="#!" class="sug_area">Salud emocional</a><br>
+										<a href="#!" class="sug_area">Salud física</a><br>
+										<a href="#!" class="sug_area">Trabajo</a><br>
+										<a href="#!" class="sug_area">Familia</a><br>
+										<a href="#!" class="sug_area">Hogar</a><br>
+										<a href="#!" class="sug_area">Relaciones públicas</a><br>
+										<a href="#!" class="sug_area">Servicio social</a><br>
+										<a href="#!" class="sug_area">Vehículos</a><br>
+										<a href="#!" class="sug_area">Mascotas.</a><br>
+										<a href="#!" class="sug_area">Mejoramiento profesional.</a><br>
+										<a href="#!" class="sug_area">Mejoramiento personal.</a><br>
+										<a href="#!" class="sug_area">Imagen personal.</a><br>
+										<a href="#!" class="sug_area">Proyectos.</a><br>
+										<a href="#!" class="sug_area">Entretenimiento.</a><br>
+
 									</div>
 									<footer class="panel-footer">
 										<button class="btn btn-primary" type="submit">Agregar</button>

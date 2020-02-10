@@ -21,6 +21,7 @@
         $ids = $_GET["ids"];	$ido = $_GET["ido"];
         $reg_so = obtenerSujetoObjetoPorids( $dbh, $ids, $ido );
         $propositos = obtenerPropositosSujetoObjeto( $dbh, $ids, $ido );
+        $todas_actividades = obtenerActividadesSujetoObjeto( $dbh, $ids, $ido );
 
         $indice = obtenerIndiceSOPAPorUsuario( $dbh, $idu );
         $so_ant_sig = obtenerSOAntSig( $indice, $ids, $ido );
@@ -79,10 +80,16 @@
 							?>
 						</div>
 
-						<div class="col-md-6 col-sm-6 col-xs-12">
+						<div id="bloque_info_act" class="col-md-6 col-sm-6 col-xs-12">
 							<?php 
 								include( "secciones/sopa/panel_actividades_proposito.php" ); 
 							?>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<?php include( "secciones/sopa/esquema-so.php" ); ?>
 						</div>
 					</div>
 
@@ -97,7 +104,8 @@
 		</section>
 
 		<?php include( "secciones/include-js.html" ); ?>
-
+		<script src="js/init.modals.js"></script>
+		
 		<script src="js/fn-ui.js"></script>
 		<script src="js/fn-acceso.js"></script>
 		<script src="js/fn-actividad.js"></script>

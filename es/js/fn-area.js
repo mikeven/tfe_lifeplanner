@@ -65,6 +65,11 @@
         iniciarBotonBorrarArea();
     });
 
+    $(".sug_area").on( "click", function(){
+        // Autocompleta el campo de nobre de área a partir de un área sugerida
+       $("#areanombre").val( $(this).html() );
+    });
+
     $(document).on( 'click', '#btn_borrar_area', function(){
         $("#btn_canc").click();
         eliminarArea( $("#id-area-e").val() );

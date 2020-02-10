@@ -84,4 +84,23 @@
 
       echo $info;
     }
+    /* --------------------------------------------------------- */
+    function infoActSO( $a ){
+      // Devuelve los datos de una actividad en listado de prioridades
+      $info = "";
+
+      if( $a["tipo"] == "g" ){
+        $info .= "<div>$a[lugar] / $a[direccion]</div>";
+        $info .= "<div>$a[tarea]</div>";
+      }
+      if( $a["tipo"] == "e" ){
+        $info .= "<div>$a[tarea]</div>";
+      }
+      if( $a["tipo"] == "l" ){
+        $info .= "<div>$a[contacto]</div>";
+        $info .= "<div>$a[motivo]</div>";
+      }
+
+      echo $info;
+    }
 ?>

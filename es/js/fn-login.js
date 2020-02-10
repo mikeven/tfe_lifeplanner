@@ -18,9 +18,10 @@
         index = (index + 1) % img_array.length;
 
         $('body').css('backgroundImage', function () {
+            index = Math.floor(Math.random() * 5);
             return 'url(../img/' + img_array[index] +')';
         });
-        setTimeout(changeBg, interval);
+        //setTimeout(changeBg, interval);
     })();
 
 	/* --------------------------------------------------------- */
