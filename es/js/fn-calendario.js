@@ -151,6 +151,25 @@
         mostrarActividad( ida, "ventana_cal" );
     });
 
+    $("#repetir_act").on( "click", function(){
+        // Mostrar confirmación de finalización de actividad
+        $(this).hide();
+        $("#repetir_actividad").fadeIn();
+    });
+
+    $("#freq_rep_act").change(function() {
+	  	// Evento seleccionador de frecuencia de repetición de una actividad
+	  	var valor =  $(this).val();
+	  	$(".opc_repeticiones").hide();
+	  	if( valor == "Fechas" ){
+			$("#fechas_repeticiones").fadeIn();
+	  	}else{
+	  		$("#num_repeticiones").fadeIn();
+	  	}
+	});
+
+    /*======================*/
+
     $("#desagendar_act").on( "click", function(){
         // Mostrar confirmación para desagendar actividad
         $(this).hide();

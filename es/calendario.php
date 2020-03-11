@@ -38,7 +38,7 @@
 			.data_act_info, .btn_priord, 
 			
 			#act_prioridad, #fecha_act_agenda, #confirmacion_desagendar, 
-			#confirmar_finalizacion{ display: none; }
+			#confirmar_finalizacion, #repetir_actividad, .opc_repeticiones{ display: none; }
 
 			#act_agendada{ float: right; }
 
@@ -52,7 +52,7 @@
 
 			.subt_accion{ color: #000 !important; float: left; }
 			#frm_edithora{ margin-bottom: 50px; }
-			#confirmar_finalizacion{ padding: 20px 0 80px 0; background: #f1f1f1; }
+			#confirmar_finalizacion, #repetir_actividad{ padding: 20px 0 80px 0; background: #f1f1f1; }
 			.tit_fin_act{ text-align: center; }
 		</style>
 	</head>
