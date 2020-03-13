@@ -130,6 +130,7 @@
 										<a class="agg_fecha_repeticion" href="#!">
 											<button type="button" class="btn btn-default"><i class="fa fa-plus"></i></button>
 										</a>
+										<input id="nfechas_rep" type="hidden" value="1">
 									</div>
 									<div id="fechas_repeticion_actividad" class="col-md-7">
 										<div id="rf1" class="bloque_sel_fecha">

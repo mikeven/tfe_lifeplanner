@@ -214,7 +214,9 @@
     $("#fechas_repeticion_actividad").on( "click", ".del_fecha_repeticion", function(){
     	// Elimina un elemento de fecha de repetición por fechas
     	var trg = $(this).attr( "data-num" );
-    	$( "#" + trg ).fadeOut();
+    	$( "#" + trg ).fadeOut( "slow", function() {
+		    $( "#" + trg ).remove();
+		});
     });
 
     /*======================*/
