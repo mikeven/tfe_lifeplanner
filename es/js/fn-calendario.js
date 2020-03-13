@@ -161,11 +161,15 @@
 	}
 	/* --------------------------------------------------------- */
 	function obtenerBloqueFechaRepeticion(){
-		//
-		var qant_bloques_fechas = numBloquesFechasRepeticion();
-		var $bloque = $('#rf1').clone();
+		// Devuelve un bloque de selección de fecha a partir del primer bloque y asigna los valores correspondientes
+		
+		var qant_bloques_fechas = $( "#nfechas_rep" ).val();
+		var $bloque = $( '#rf1' ).clone();
 		qant_bloques_fechas++;
-		$($bloque).attr("id", "rf" + qant_bloques_fechas );
+
+		$( $bloque ).attr( "id", "rf" + qant_bloques_fechas );
+
+		$( "#nfechas_rep" ).val( qant_bloques_fechas );
 
 		var bloque = { "bloque": $bloque, "num": qant_bloques_fechas };
 
