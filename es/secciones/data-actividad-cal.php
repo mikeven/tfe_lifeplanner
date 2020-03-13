@@ -133,7 +133,7 @@
 									</div>
 									<div id="fechas_repeticion_actividad" class="col-md-7">
 										<div id="rf1" class="bloque_sel_fecha">
-											<div class="col-md-10 col-xs-10">
+											<div class="col-md-10 col-xs-10 mmxx">
 												<div class="input-group grupo_campo_fecha">
 													<span class="input-group-addon">
 														<i class="fa fa-calendar"></i>
@@ -142,7 +142,7 @@
 													class="form-control fecha_repeticion" name="fecha_cal">
 												</div>
 											</div>
-											<div class="col-md-2 col-xs-2">
+											<div class="col-md-2 col-xs-2 mmxx">
 												<a id="df1" class="del_fecha_repeticion" href="#!" data-num="1">
 													<button type="button" class="btn btn-default">
 														<i class="fa fa-times icon_del_fecha"></i>

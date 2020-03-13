@@ -167,7 +167,9 @@
 		qant_bloques_fechas++;
 		$($bloque).attr("id", "rf" + qant_bloques_fechas );
 
-		return $bloque;
+		var bloque = { "bloque": $bloque, "num": qant_bloques_fechas };
+
+		return bloque;
 	}
 	/* --------------------------------------------------------- */
 	$("#selector_act_cal").on( "click", function(){
@@ -198,14 +200,21 @@
 	$(".agg_fecha_repeticion").on( "click", function(){
         // Replica un bloque de campo de fecha para repetición de actividad por fechas
         var campo_fecha = obtenerBloqueFechaRepeticion(); 
-        $("#fechas_repeticion_actividad").append( campo_fecha );
-        var nbloque_actual = numBloquesFechasRepeticion();
         
-        console.log( "NB: " + nbloque_actual );
-
-        $("#df1").attr( "data-num", nbloque_actual );
-        $("#df1" ).attr( "id", "df" + nbloque_actual );
+        $("#fechas_repeticion_actividad").append( campo_fecha.bloque );
+        //var nbloque_actual = numBloquesFechasRepeticion();
+        
+        var del_but = campo_fecha.bloque.find(".del_fecha_repeticion");
+  
+        $( del_but ).attr( "data-num", "rf" + campo_fecha.num );
+        $( del_but ).attr( "id", "df" + campo_fecha.num );
         reinicializarDatePicker();
+    });
+
+    $("#fechas_repeticion_actividad").on( "click", ".del_fecha_repeticion", function(){
+    	// Elimina un elemento de fecha de repetición por fechas
+    	var trg = $(this).attr( "data-num" );
+    	$( "#" + trg ).fadeOut();
     });
 
     /*======================*/
