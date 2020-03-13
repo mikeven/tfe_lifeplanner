@@ -108,6 +108,8 @@
 									</div>
 									<input id="id_actfinalizar" type="hidden" name="id_actfin">
 								</div>
+								<hr>
+								<!-- ---------------------------------- -->
 								<div class="form-group opc_repeticiones" id="num_repeticiones">
 									<label class="col-md-5 control-label" for="textareaDefault">Número de repeticiones</label>
 									<div class="col-md-7">
@@ -121,19 +123,37 @@
 									</div>
 									<input id="id_actfinalizar" type="hidden" name="id_actfin">
 								</div>
+								<!-- ---------------------------------- -->
 								<div class="form-group opc_repeticiones" id="fechas_repeticiones">
-									<label class="col-md-5 control-label" for="textareaDefault">Fechas a repetir actividad</label>
-									<div class="col-md-7">
-										<div class="btn-group">
-											<button type="button" class="btn btn-default">1</button>
-											<button type="button" class="btn btn-default">2</button>
-											<button type="button" class="btn btn-default">3</button>
-											<button type="button" class="btn btn-default">4</button>
-											<button type="button" class="btn btn-default">5</button>
+									<div class="col-md-5" style="padding-bottom: 16px;">
+										<label class="control-label" for="textareaDefault">Agregar fechas para esta actividad</label>
+										<a class="agg_fecha_repeticion" href="#!">
+											<button type="button" class="btn btn-default"><i class="fa fa-plus"></i></button>
+										</a>
+									</div>
+									<div id="fechas_repeticion_actividad" class="col-md-7">
+										<div id="rf1" class="bloque_sel_fecha">
+											<div class="col-md-10 col-xs-10">
+												<div class="input-group grupo_campo_fecha">
+													<span class="input-group-addon">
+														<i class="fa fa-calendar"></i>
+													</span>
+													<input type="text" required data-plugin-datepicker 
+													class="form-control fecha_repeticion" name="fecha_cal">
+												</div>
+											</div>
+											<div class="col-md-2 col-xs-2">
+												<a id="df1" class="del_fecha_repeticion" href="#!" data-num="1">
+													<button type="button" class="btn btn-default">
+														<i class="fa fa-times icon_del_fecha"></i>
+													</button>
+												</a>
+											</div>
 										</div>
 									</div>
-									<input id="id_actfinalizar" type="hidden" name="id_actfin">
 								</div>
+								<hr>
+								<!-- ---------------------------------- -->
 								<div>
 									<div class="col-sm-9 col-sm-offset-3">
 										<a id="confirmar_finalizar_act" href="#!">

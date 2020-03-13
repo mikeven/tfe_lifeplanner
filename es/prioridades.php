@@ -177,7 +177,6 @@
 		
 		<!-- Theme Initialization Files -->
 		<script src="../assets/javascripts/theme.init.js"></script>
-		
 
 		<!-- Examples -->
 		<script src="../assets/javascripts/tables/examples.datatables.default.js"></script>

@@ -145,6 +145,31 @@
 
 	});
 	/* --------------------------------------------------------- */
+	function reinicializarDatePicker(){
+		// Reinicia la función datepicker para los campos de fecha dinámicamente creados
+
+		$(".fecha_repeticion").datepicker({
+		    isRTL: false,
+		    format: 'dd/mm/yyyy',
+		    autoclose:true,
+		    language: 'es'
+		});
+	}
+	/* --------------------------------------------------------- */
+	function numBloquesFechasRepeticion(){
+		return document.getElementsByClassName("bloque_sel_fecha").length;
+	}
+	/* --------------------------------------------------------- */
+	function obtenerBloqueFechaRepeticion(){
+		//
+		var qant_bloques_fechas = numBloquesFechasRepeticion();
+		var $bloque = $('#rf1').clone();
+		qant_bloques_fechas++;
+		$($bloque).attr("id", "rf" + qant_bloques_fechas );
+
+		return $bloque;
+	}
+	/* --------------------------------------------------------- */
 	$("#selector_act_cal").on( "click", function(){
         // Evento invocador para mostrar datos de actividad en calendario
         var ida = $(this).attr( "data-ida" );
@@ -167,6 +192,21 @@
 	  		$("#num_repeticiones").fadeIn();
 	  	}
 	});
+
+	/*======================*/
+
+	$(".agg_fecha_repeticion").on( "click", function(){
+        // Replica un bloque de campo de fecha para repetición de actividad por fechas
+        var campo_fecha = obtenerBloqueFechaRepeticion(); 
+        $("#fechas_repeticion_actividad").append( campo_fecha );
+        var nbloque_actual = numBloquesFechasRepeticion();
+        
+        console.log( "NB: " + nbloque_actual );
+
+        $("#df1").attr( "data-num", nbloque_actual );
+        $("#df1" ).attr( "id", "df" + nbloque_actual );
+        reinicializarDatePicker();
+    });
 
     /*======================*/
 
