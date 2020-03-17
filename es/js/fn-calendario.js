@@ -215,8 +215,17 @@
 	            $("#response_repetir_actividad").html( espera );
 	        },
 	        success: function( response ){
-	            console.log( response );
-	        }
+	        	console.log( response );
+	        	res = jQuery.parseJSON( response );
+	        	if( res.exito == 1 ){
+	                notificar( "Actividad", res.msg, "success" );
+	                $("#response_repetir_actividad").html( res.mje );
+	                //setTimeout( function() { location.reload( true ); }, 3000 );
+	            }
+	            else
+	                notificar( "Actividad", res.mje, "error" );
+		            $("#response_repetir_actividad").html( res.mje );
+		        }
 	    });
 	}
 	/* --------------------------------------------------------- */

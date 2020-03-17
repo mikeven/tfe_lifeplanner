@@ -302,14 +302,16 @@
     	$actividad_base 	= obtenerActividadPorId( $dbh, $id_actividad );
     	$hora 				= $actividad_base["hcalendario"];
     	$nueva_actividad 	= replicarActividadParaRepeticion( $actividad_base );
+    	$exito				= 1;
 
     	foreach ( $fechas as $f ) {
     		$ida = agregarActividad( $dbh, $nueva_actividad, 'agendada' );
+    		if( $ida == 0 ) $exito = -1;
     		$fecha = $f." ".$hora;
     		actualizarFechaActividad( $dbh, $ida, $fecha );
     	}
 
-    	return 
+    	return $exito;
     }
 	/* --------------------------------------------------------- */
     function mostrarFechasProyectadas( $fechas ){
@@ -604,7 +606,18 @@
 			$fechas = formatearFechas( json_decode( $_POST["frm_fechas"] ) );
 		}
 		
-		repetirActividadFrecuencia( $dbh, $id_actividad, $fechas );
+		$rsp = repetirActividadFrecuencia( $dbh, $id_actividad, $fechas );
+
+		if( $rsp == 1 ){
+			$res["exito"] = 1;
+			$res["mje"] = "La actividad fue replicada con éxito <a href='#!' onClick='window.location.reload()'>Recargar</a>";
+			$res["msg"] = "La actividad fue replicada con éxito";
+		}else{
+			$res["exito"] = -1;
+			$res["mje"] = "Error al replicar actividad";
+		}
+		
+		echo json_encode( $res );
 		
 	}
 	/* --------------------------------------------------------- */
