@@ -25,13 +25,14 @@
 		s.nombre as nsujeto, o.nombre as nobjeto,  
 		date_format(act.fecha_prioridad,'%d/%m/%Y') as fprioridad, 
 		date_format(act.fecha_agenda,'%d/%m/%Y') as fagendada, act.resultado,  
-		date_format(act.fecha_calendario,'%d/%m/%Y %h:%i %p') as fcalendario, 
+		date_format(act.fecha_calendario,'%d/%m/%Y %h:%i %p') as fcalendario,
+		date_format(act.fecha_calendario, '%H:%i') as hcalendario, 
 		date_format(act.fecha_terminacion,'%d/%m/%Y') as fterminacion, 
 		date_format(act.fecha_cancela,'%d/%m/%Y') as fcancelacion, 
 		p.id as idprop, p.descripcion as proposito from actividad act, proposito p, 
 		sujeto s, objeto o, sujeto_objeto so where act.proposito_id = p.id and act.id = $id 
 		and p.sujeto_objeto_id = so.id and so.sujeto_id = s.id and so.objeto_id = o.id";
-
+		
 		$rst = mysqli_query( $dbh, $q );
 		$data = mysqli_fetch_array( $rst );
 
@@ -130,13 +131,13 @@
 		return obtenerListaRegistros( mysqli_query( $dbh, $q ) );
 	}
 	/* --------------------------------------------------------- */
-	function agregarActividad( $dbh, $a ){
+	function agregarActividad( $dbh, $a, $estado ){
 		// Procesa el registro de nueva actividad
-		$estado = "creada";
+		
 		$q = "insert into actividad ( tipo, estado, tarea, lugar, direccion, motivo, contacto, 
 		creado, proposito_id ) values ('$a[tipo]', '$estado', '$a[tarea]', '$a[lugar]', 
 		'$a[direccion]', '$a[motivo]', '$a[contacto]', NOW(), $a[id_prop_act] )";
-
+		
 		$data = mysqli_query( $dbh, $q );
 		return mysqli_insert_id( $dbh );
 	}
@@ -278,6 +279,80 @@
 
       return $color[ $actividad["tipo"] ];
     }
+    /* --------------------------------------------------------- */
+    function replicarActividadParaRepeticion( $actividad_base ){
+    	// Devuelve un arreglo con los datos de una actividad para crear una nueva
+    	
+		$actividad = array(
+			"tipo" 			=> $actividad_base["tipo"],
+			"tarea" 		=> $actividad_base["tarea"],
+			"lugar"			=> $actividad_base["lugar"],
+			"direccion"		=> $actividad_base["direccion"],
+			"motivo"		=> $actividad_base["motivo"],
+			"contacto"		=> $actividad_base["contacto"],
+			"id_prop_act"	=> $actividad_base["idprop"]
+		);
+
+		return $actividad;
+    }
+	/* --------------------------------------------------------- */
+    function repetirActividadFrecuencia( $dbh, $id_actividad, $fechas ){
+    	// Procesa la actividad base para registrar sus repeticiones según las fechas obtenidas
+
+    	$actividad_base 	= obtenerActividadPorId( $dbh, $id_actividad );
+    	$hora 				= $actividad_base["hcalendario"];
+    	$nueva_actividad 	= replicarActividadParaRepeticion( $actividad_base );
+
+    	foreach ( $fechas as $f ) {
+    		$ida = agregarActividad( $dbh, $nueva_actividad, 'agendada' );
+    		$fecha = $f." ".$hora;
+    		actualizarFechaActividad( $dbh, $ida, $fecha );
+    	}
+
+    	return 
+    }
+	/* --------------------------------------------------------- */
+    function mostrarFechasProyectadas( $fechas ){
+    	//
+    	$bloque_fechas = "";
+    	foreach ( $fechas as $f ) {
+    		$bloque_fechas .= "<div class='txfechas_proy'>".$f."</div>";
+    	}
+    	echo $bloque_fechas;
+    }
+	/* --------------------------------------------------------- */
+    function calcularFechasFuturas( $fecha, $frequencia, $n, $param ){
+    	// Devuelve un arreglo con el número de fechas futuras a partir de una fecha base, frecuencia y número de frecuencia
+    	
+    	$dias_freq = array( 'Semanal' => 7, 'Mensual' => 30 );
+    	$ndias = $dias_freq[ $frequencia ];
+    	$fechas = array();
+    	$dias = array( "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado" );
+    	
+    	for ( $i = 0; $i < $n;  $i++ ){
+    		$fecha = date('d-m-Y', strtotime( $fecha. ' + '. $ndias .' days') );
+
+    		if( $param == "impresion" ){
+    			$dsemana = $dias[ date( 'w', strtotime( $fecha ) ) ];
+    			$fechas[] = $dsemana . " " . $fecha;
+    		}else{
+    			$fechas[] = date( 'Y-m-d', strtotime( $fecha ) );
+    		}
+    	} 
+    	
+    	return $fechas;
+    }
+	/* --------------------------------------------------------- */
+    function formatearFechas( $fechas ){
+		// Devuelve una lista de fechas en formato YYYY-mm-dd
+
+		$fechas_formato = array();
+
+		foreach ( $fechas as $f )
+			$fechas_formato[] = cambiaf_a_mysql( $f );
+
+		return $fechas_formato;
+    }
 	/* --------------------------------------------------------- */
 	if( isset( $_POST["nactividad"] ) ){ 
 		// Invocación desde: js/fn-actividad.js
@@ -286,7 +361,7 @@
 		parse_str( $_POST["nactividad"], $actividad );
 		$actividad = escaparCampos( $dbh, $actividad );
 		
-		$rsp = agregarActividad( $dbh, $actividad );
+		$rsp = agregarActividad( $dbh, $actividad, 'creada' );
 		if( $rsp != 0 ){
 			$res["exito"] = 1;
 			$res["mje"] = "Actividad registrada con éxito";
@@ -499,6 +574,38 @@
 		}
 		
 		echo json_encode( $res );
+	}
+	/* --------------------------------------------------------- */
+	if( isset( $_POST["freq_repeticion"] ) ){
+		// Invocación desde: js/fn-actividad.js
+		include( "bd.php" );
+
+		$frecuencia = $_POST["freq_repeticion"];
+		$n 			= $_POST["nrepeticiones"];
+		$fecha 		= $_POST["fecha"];
+
+		$fechas = calcularFechasFuturas( $fecha, $frecuencia, $n, "impresion" );
+		mostrarFechasProyectadas( $fechas );
+	}
+	/* --------------------------------------------------------- */
+	if( isset( $_POST["repetir_act"] ) ){
+		// Invocación desde: js/fn-calendario.js
+		include( "bd.php" );
+
+		$id_actividad 	= $_POST["repetir_act"];
+		$frecuencia 	= $_POST["freq"];
+		$n_reps 		= $_POST["nrep"];
+		$fecha 			= $_POST["fecha"];
+
+		if( $frecuencia != "Fechas" ){
+			$fechas = calcularFechasFuturas( $fecha, $frecuencia, $n_reps, "data" );
+		}
+		else{
+			$fechas = formatearFechas( json_decode( $_POST["frm_fechas"] ) );
+		}
+		
+		repetirActividadFrecuencia( $dbh, $id_actividad, $fechas );
+		
 	}
 	/* --------------------------------------------------------- */
 ?>

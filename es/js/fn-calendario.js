@@ -32,8 +32,8 @@
 	};
 	/* --------------------------------------------------------- */
 	var initCalendar = function() {
+		// Inicialización de las opciones 
 
-		
 		var $calendar = $('#calendar');
 		var date = new Date();
 		var d = date.getDate();
@@ -156,8 +156,15 @@
 		});
 	}
 	/* --------------------------------------------------------- */
-	function numBloquesFechasRepeticion(){
-		return document.getElementsByClassName("bloque_sel_fecha").length;
+	function vectorFechasRepeticion(){
+		// 
+		var fechas = new Array();
+
+		$(".fecha_repeticion").each( function(){
+			fechas.push( $(this).val() );
+    	});
+
+    	return JSON.stringify( fechas );
 	}
 	/* --------------------------------------------------------- */
 	function obtenerBloqueFechaRepeticion(){
@@ -168,12 +175,49 @@
 		qant_bloques_fechas++;
 
 		$( $bloque ).attr( "id", "rf" + qant_bloques_fechas );
+		$( $bloque ).addClass ( "nva_fecha_rep" );
 
 		$( "#nfechas_rep" ).val( qant_bloques_fechas );
 
 		var bloque = { "bloque": $bloque, "num": qant_bloques_fechas };
 
 		return bloque;
+	}
+	/* --------------------------------------------------------- */
+	function mostrarFechasRepeticion( freq, nrep, fecha_base ){
+		// Muestra la proyección de fechas a repetirse una actividad de acuerdo a la frecuencia seleccionada
+		var espera = "<img src='../img/loading.gif' width='20'>";
+
+		$.ajax({
+	        type:"POST",
+	        url:"database/data-actividad.php",
+	        data:{ freq_repeticion: freq, nrepeticiones: nrep, fecha: fecha_base },
+	        beforeSend: function() {
+	            $("#data_fechas_proyectadas").html( espera );
+	        },
+	        success: function( response ){
+	        	$("#proyeccion_fechas").fadeIn();
+	            $("#data_fechas_proyectadas").html( response );
+	        }
+	    });
+	}
+	/* --------------------------------------------------------- */
+	function repetirActividad( ida, fecha_act, frecuencia, nrepeticiones, fechas_repeticion ){
+	    // Invoca al servidor para registrar la repetición de una actividad
+	    var espera = "<img src='../img/loading.gif' width='20'>";
+
+	    $.ajax({
+	        type:"POST",
+	        url:"database/data-actividad.php",
+	        data:{ repetir_act: ida, fecha: fecha_act, freq: frecuencia, 
+	        		nrep: nrepeticiones, frm_fechas: fechas_repeticion },
+	        beforeSend: function() {
+	            $("#response_repetir_actividad").html( espera );
+	        },
+	        success: function( response ){
+	            console.log( response );
+	        }
+	    });
 	}
 	/* --------------------------------------------------------- */
 	$("#selector_act_cal").on( "click", function(){
@@ -184,7 +228,7 @@
 
     $("#repetir_act").on( "click", function(){
         // Mostrar confirmación de finalización de actividad
-        $(this).hide();
+        $("#opc_repetir_act").hide();
         $("#repetir_actividad").fadeIn();
     });
 
@@ -199,7 +243,17 @@
 	  	}
 	});
 
-	/*======================*/
+	/* ====================== */
+	$(".nro_rep_frq").on( "click", function(){
+
+		var nrep 		= $(this).html();
+        var fecha_base 	= $("#fecha_act_cal").val();
+        var freq 		= $("#freq_rep_act").val();
+        $("#val_nrepeticiones").val( nrep );
+
+		mostrarFechasRepeticion( freq, nrep, fecha_base );
+	});
+	/* ====================== */
 
 	$(".agg_fecha_repeticion").on( "click", function(){
         // Replica un bloque de campo de fecha para repetición de actividad por fechas
@@ -223,7 +277,22 @@
 		});
     });
 
-    /*======================*/
+    $("#confirmar_repetir_act").on( "click", function(){
+        // Evento invocador para repetir una actividad
+
+        var ida 		= $("#selector_act_cal").attr( "data-ida" );
+        var fecha_act 	= $("#fecha_act_cal").val();
+        var frecuencia 	= $("#freq_rep_act").val();
+        var nrep 		= $("#val_nrepeticiones").val();
+        var fechas_rep 	= "";
+        
+        if( frecuencia == "Fechas" )
+        	var fechas_rep 	= vectorFechasRepeticion();
+        
+        repetirActividad( ida, fecha_act, frecuencia, nrep, fechas_rep );
+    });
+
+    /* ====================== */
 
     $("#desagendar_act").on( "click", function(){
         // Mostrar confirmación para desagendar actividad
@@ -242,7 +311,7 @@
         var ida = $("#selector_act_cal").attr( "data-ida" );
         desagendarActividad( ida );
     });
-    /*======================*/
+    /* ====================== */
     $("#finalizar_act").on( "click", function(){
         // Mostrar confirmación de finalización de actividad
         $(this).hide();
@@ -258,7 +327,6 @@
     $("#confirmar_finalizar_act").on( "click", function(){
         // Evento invocador para desagendar una actividad
         var ida = $("#selector_act_cal").attr( "data-ida" );
-        //
     });
 
     $("#editar_hora").on( "click", function(){

@@ -83,7 +83,7 @@
 						</div>
 					</div>
 					<div class="summary-footer">
-						<div>
+						<div id="opc_repetir_act">
 							<p class="subt_accion panel-subtitle">Repetir actividad</p>
 							<a id="repetir_act" href="#!">
 								<button type="button" class="btn btn-default">
@@ -106,7 +106,6 @@
 											<option value="Fechas">Por fechas</option>
 										</select>
 									</div>
-									<input id="id_actfinalizar" type="hidden" name="id_actfin">
 								</div>
 								<hr>
 								<!-- ---------------------------------- -->
@@ -114,14 +113,14 @@
 									<label class="col-md-5 control-label" for="textareaDefault">Número de repeticiones</label>
 									<div class="col-md-7">
 										<div class="btn-group">
-											<button type="button" class="btn btn-default">1</button>
-											<button type="button" class="btn btn-default">2</button>
-											<button type="button" class="btn btn-default">3</button>
-											<button type="button" class="btn btn-default">4</button>
-											<button type="button" class="btn btn-default">5</button>
+											<button type="button" class="btn btn-default nro_rep_frq">1</button>
+											<button type="button" class="btn btn-default nro_rep_frq">2</button>
+											<button type="button" class="btn btn-default nro_rep_frq">3</button>
+											<button type="button" class="btn btn-default nro_rep_frq">4</button>
+											<button type="button" class="btn btn-default nro_rep_frq">5</button>
 										</div>
+										<input type="hidden" name="nrepeticiones" id="val_nrepeticiones">
 									</div>
-									<input id="id_actfinalizar" type="hidden" name="id_actfin">
 								</div>
 								<!-- ---------------------------------- -->
 								<div class="form-group opc_repeticiones" id="fechas_repeticiones">
@@ -152,13 +151,19 @@
 											</div>
 										</div>
 									</div>
+									
+								</div>
+								<div id="proyeccion_fechas" class="form-group opc_repeticiones">
+									<div class="col-md-5"> Fechas proyectadas:</div>
+									<div id="data_fechas_proyectadas" class="col-md-7"></div>
 								</div>
 								<hr>
 								<!-- ---------------------------------- -->
+								
 								<div>
-									<div class="col-sm-9 col-sm-offset-3">
-										<a id="confirmar_finalizar_act" href="#!">
-											<button type="submit" class="btn btn-primary">Guardar</button>
+									<div id="response_repetir_actividad" class="col-sm-9 col-sm-offset-3">
+										<a id="confirmar_repetir_act" href="#!">
+											<button type="button" class="btn btn-primary">Guardar</button>
 										</a>
 									</div>
 								</div>

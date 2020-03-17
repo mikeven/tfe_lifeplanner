@@ -53,7 +53,7 @@
 			#confirmar_finalizacion, #repetir_actividad{ padding: 20px 0 80px 0; background: #f1f1f1; }
 			.tit_fin_act{ text-align: center; }
 			.datepicker{ z-index:99999 !important; }
-			.mmxx{ margin: 5px 0;  }
+			.mmxx{ margin: 5px 0;  } .txfechas_proy{ font-weight: bolder; }
 
 		</style>
 	</head>

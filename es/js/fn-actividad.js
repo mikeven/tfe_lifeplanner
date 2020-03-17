@@ -278,6 +278,10 @@ function resetClasePanelAct(){
 function resetPanelsDataActividadCalendario(){
     // Reinicia los elementos ocultos y visibles de una actividad de calendario
     $("#frm_edithora").hide();
+    $(".nva_fecha_rep").remove();
+    $("#repetir_actividad, .opc_repeticiones").hide();
+    $('#freq_rep_act').prop( 'selectedIndex', 0 );
+    $("#opc_repetir_act").show();
     $("#confirmar_finalizacion").hide();
     $("#finalizar_act").show();
 }
