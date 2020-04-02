@@ -145,11 +145,167 @@
 
 	});
 	/* --------------------------------------------------------- */
+	function reinicializarDatePicker(){
+		// Reinicia la función datepicker para los campos de fecha dinámicamente creados
+
+		$(".fecha_repeticion").datepicker({
+		    isRTL: false,
+		    format: 'dd/mm/yyyy',
+		    autoclose:true,
+		    language: 'es'
+		});
+	}
+	/* --------------------------------------------------------- */
+	function vectorFechasRepeticion(){
+		// 
+		var fechas = new Array();
+
+		$(".fecha_repeticion").each( function(){
+			fechas.push( $(this).val() );
+    	});
+
+    	return JSON.stringify( fechas );
+	}
+	/* --------------------------------------------------------- */
+	function obtenerBloqueFechaRepeticion(){
+		// Devuelve un bloque de selección de fecha a partir del primer bloque y asigna los valores correspondientes
+		
+		var qant_bloques_fechas = $( "#nfechas_rep" ).val();
+		var $bloque = $( '#rf1' ).clone();
+		qant_bloques_fechas++;
+
+		$( $bloque ).attr( "id", "rf" + qant_bloques_fechas );
+		$( $bloque ).addClass ( "nva_fecha_rep" );
+
+		$( "#nfechas_rep" ).val( qant_bloques_fechas );
+
+		var bloque = { "bloque": $bloque, "num": qant_bloques_fechas };
+
+		return bloque;
+	}
+	/* --------------------------------------------------------- */
+	function mostrarFechasRepeticion( freq, nrep, fecha_base ){
+		// Muestra la proyección de fechas a repetirse una actividad de acuerdo a la frecuencia seleccionada
+		var espera = "<img src='../img/loading.gif' width='25'>";
+
+		$.ajax({
+	        type:"POST",
+	        url:"database/data-actividad.php",
+	        data:{ freq_repeticion: freq, nrepeticiones: nrep, fecha: fecha_base },
+	        beforeSend: function() {
+	            $("#data_fechas_proyectadas").html( espera );
+	        },
+	        success: function( response ){
+	        	$("#proyeccion_fechas").fadeIn();
+	            $("#data_fechas_proyectadas").html( response );
+	        }
+	    });
+	}
+	/* --------------------------------------------------------- */
+	function repetirActividad( ida, fecha_act, frecuencia, nrepeticiones, fechas_repeticion ){
+	    // Invoca al servidor para registrar la repetición de una actividad
+	    var espera = "<img src='../img/loading.gif' width='25'>";
+
+	    $.ajax({
+	        type:"POST",
+	        url:"database/data-actividad.php",
+	        data:{ repetir_act: ida, fecha: fecha_act, freq: frecuencia, 
+	        		nrep: nrepeticiones, frm_fechas: fechas_repeticion },
+	        beforeSend: function() {
+	            $("#response_repetir_actividad").html( espera );
+	        },
+	        success: function( response ){
+	        	console.log( response );
+	        	res = jQuery.parseJSON( response );
+	        	if( res.exito == 1 ){
+	                notificar( "Activity", res.msg, "success" );
+	                $("#response_repetir_actividad").html( res.mje );
+	                //setTimeout( function() { location.reload( true ); }, 3000 );
+	            }
+	            else
+	                notificar( "Activity", res.mje, "error" );
+		            $("#response_repetir_actividad").html( res.mje );
+		        }
+	    });
+	}
+	/* --------------------------------------------------------- */
 	$("#selector_act_cal").on( "click", function(){
         // Evento invocador para mostrar datos de actividad en calendario
         var ida = $(this).attr( "data-ida" );
         mostrarActividad( ida, "ventana_cal" );
     });
+
+    $("#repetir_act").on( "click", function(){
+        // Mostrar confirmación de finalización de actividad
+        $("#opc_repetir_act").hide();
+        $("#repetir_actividad").fadeIn();
+    });
+
+    $("#freq_rep_act").change(function() {
+	  	// Evento seleccionador de frecuencia de repetición de una actividad
+	  	var valor =  $(this).val();
+	  	$(".opc_repeticiones").hide();
+	  	if( valor == "Fechas" ){
+			$("#fechas_repeticiones").fadeIn();
+		}
+	  	if( valor == "Semanal" ){
+	  		$("#num_repeticiones_semanal").fadeIn();
+	  	}
+	  	if( valor == "Mensual" ){
+	  		$("#num_repeticiones_mensual").fadeIn();
+	  	}
+	});
+
+	/* ====================== */
+	$(".nro_rep_frq").on( "click", function(){
+
+		var nrep 		= $(this).html();
+        var fecha_base 	= $("#fecha_act_cal").val();
+        var freq 		= $("#freq_rep_act").val();
+        $("#val_nrepeticiones").val( nrep );
+
+		mostrarFechasRepeticion( freq, nrep, fecha_base );
+	});
+	/* ====================== */
+
+	$(".agg_fecha_repeticion").on( "click", function(){
+        // Replica un bloque de campo de fecha para repetición de actividad por fechas
+        var campo_fecha = obtenerBloqueFechaRepeticion(); 
+        
+        $("#fechas_repeticion_actividad").append( campo_fecha.bloque );
+        //var nbloque_actual = numBloquesFechasRepeticion();
+        
+        var del_but = campo_fecha.bloque.find(".del_fecha_repeticion");
+  
+        $( del_but ).attr( "data-num", "rf" + campo_fecha.num );
+        $( del_but ).attr( "id", "df" + campo_fecha.num );
+        reinicializarDatePicker();
+    });
+
+    $("#fechas_repeticion_actividad").on( "click", ".del_fecha_repeticion", function(){
+    	// Elimina un elemento de fecha de repetición por fechas
+    	var trg = $(this).attr( "data-num" );
+    	$( "#" + trg ).fadeOut( "slow", function() {
+		    $( "#" + trg ).remove();
+		});
+    });
+
+    $("#confirmar_repetir_act").on( "click", function(){
+        // Evento invocador para repetir una actividad
+
+        var ida 		= $("#selector_act_cal").attr( "data-ida" );
+        var fecha_act 	= $("#fecha_act_cal").val();
+        var frecuencia 	= $("#freq_rep_act").val();
+        var nrep 		= $("#val_nrepeticiones").val();
+        var fechas_rep 	= "";
+        
+        if( frecuencia == "Fechas" )
+        	var fechas_rep 	= vectorFechasRepeticion();
+        
+        repetirActividad( ida, fecha_act, frecuencia, nrep, fechas_rep );
+    });
+
+    /* ====================== */
 
     $("#desagendar_act").on( "click", function(){
         // Mostrar confirmación para desagendar actividad

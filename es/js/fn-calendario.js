@@ -186,7 +186,7 @@
 	/* --------------------------------------------------------- */
 	function mostrarFechasRepeticion( freq, nrep, fecha_base ){
 		// Muestra la proyección de fechas a repetirse una actividad de acuerdo a la frecuencia seleccionada
-		var espera = "<img src='../img/loading.gif' width='20'>";
+		var espera = "<img src='../img/loading.gif' width='25'>";
 
 		$.ajax({
 	        type:"POST",
@@ -204,7 +204,7 @@
 	/* --------------------------------------------------------- */
 	function repetirActividad( ida, fecha_act, frecuencia, nrepeticiones, fechas_repeticion ){
 	    // Invoca al servidor para registrar la repetición de una actividad
-	    var espera = "<img src='../img/loading.gif' width='20'>";
+	    var espera = "<img src='../img/loading.gif' width='25'>";
 
 	    $.ajax({
 	        type:"POST",
@@ -247,8 +247,12 @@
 	  	$(".opc_repeticiones").hide();
 	  	if( valor == "Fechas" ){
 			$("#fechas_repeticiones").fadeIn();
-	  	}else{
-	  		$("#num_repeticiones").fadeIn();
+		}
+	  	if( valor == "Semanal" ){
+	  		$("#num_repeticiones_semanal").fadeIn();
+	  	}
+	  	if( valor == "Mensual" ){
+	  		$("#num_repeticiones_mensual").fadeIn();
 	  	}
 	});
 

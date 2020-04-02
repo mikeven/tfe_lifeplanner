@@ -19,16 +19,22 @@
 							<span>Home</span>
 						</a>
 					</li>
-					<li class="nav-parent">
-						<a>
+					<li class="nav-active">
+						<a href="areas.php">
 							<i class="fa fa-cube" aria-hidden="true"></i>
 							<span>Areas</span>
 						</a>
+					</li>
+					<li class="nav-parent">
+						<a>
+							<i class="fa fa-database" aria-hidden="true"></i>
+							<span>S.O.P.A.</span>
+						</a>
 						<ul class="nav nav-children">
 							<li>
-								<a href="areas.php">
-									<i class="fa fa-cube" aria-hidden="true"></i>
-									<span>Areas</span>
+								<a href="s-o-p-a.php">
+									<i class="fa fa-database" aria-hidden="true"></i>
+									<span>S.O.P.A.</span>
 								</a>
 							</li>
 							<li>
@@ -42,14 +48,8 @@
 									<i class="fa fa-puzzle-piece" aria-hidden="true"></i>
 									<span>Objects</span>
 								</a>
-							</li>	
+							</li>
 						</ul>
-					</li>
-					<li class="nav-active">
-						<a href="s-o-p-a.php">
-							<i class="fa fa-database" aria-hidden="true"></i>
-							<span>S.O.P.A.</span>
-						</a>
 					</li>
 					<li class="nav-active">
 						<a href="prioridades.php">

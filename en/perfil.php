@@ -9,7 +9,7 @@
     include( "database/data-acceso.php" );
     include( "database/data-usuario.php" );
     checkSession( "" );
-    $titulo_pagina = "Perfil de usuario";
+    $titulo_pagina = "User profile";
 
     $idu = $_SESSION["user"]["id"];
     $usr = obtenerDatosUsuario( $dbh, $idu );
@@ -19,7 +19,7 @@
 <html class="fixed">
 	<head>
 		<!-- Título -->
-		<title>Perfil de usuario | TFE Life Planner</title>
+		<title>User profile | TFE Life Planner</title>
 		<?php include( "secciones/meta-tags.html" );?>
 
 		<?php include( "secciones/include-css.html" );?>
@@ -57,9 +57,9 @@
 									</div>
 								</header>
 								<div class="panel-body text-left">
-									<p>	<i class="fa fa-clock-o"></i> Registrado: 
+									<p>	<i class="fa fa-clock-o"></i> Registered: 
 										<?php echo $usr["fregistro"]; ?> </p>
-									<p>	<i class="fa fa-clock-o"></i> Último ingreso: 
+									<p>	<i class="fa fa-clock-o"></i> Last login: 
 										<?php echo $usr["ult_ingreso"]; ?> </p>
 								</div>
 							</section>
@@ -69,21 +69,21 @@
 								<div class="tabs tabs-primary">
 									<ul class="nav nav-tabs nav-justified">
 										<li class="active">
-											<a href="#tfe_dp" data-toggle="tab" class="text-center"><i class="fa fa-user"></i> Datos personales</a>
+											<a href="#tfe_dp" data-toggle="tab" class="text-center"><i class="fa fa-user"></i> Personal data</a>
 										</li>
 										<li>
-											<a href="#tfe_pwd" data-toggle="tab" class="text-center"><i class="fa fa-lock"></i> Contraseña</a>
+											<a href="#tfe_pwd" data-toggle="tab" class="text-center"><i class="fa fa-lock"></i> Password</a>
 										</li>
 									</ul>
 									<div class="tab-content">
 										<div id="tfe_dp" class="tab-pane active">
-											<p>Datos personales </p>
+											<p>Personal data </p>
 											<form id="frm_mdatos_pers" class="form-horizontal">
 												<input type="hidden" name="idu" 
 												value="<?php echo $idu ?>">
 												<div class="row form-group">
 													<div class="col-lg-12">
-														<label control-label">Nombre 
+														<label control-label">Name 
 														<span class="required">*</span></label>
 														<input type="text" name="nombre" placeholder="Nombre" 
 														class="form-control" required 
@@ -101,27 +101,27 @@
 												<footer class="panel-footer">
 													<div class="row">
 														<div class="col-sm-9 col-sm-offset-3">
-															<button class="btn btn-primary">Guardar</button>
+															<button class="btn btn-primary">Save</button>
 														</div>
 													</div>
 												</footer>
 											</form>
 										</div>
 										<div id="tfe_pwd" class="tab-pane">
-											<p>Cambiar contraseña </p>
+											<p>Change Password </p>
 											<form id="frm_actpwd" class="form-horizontal">
 												<input type="hidden" name="idu" 
 												value="<?php echo $idu ?>">
 												<div class="row form-group">
 													<div class="col-lg-12">
-														<label control-label">Contraseña 
+														<label control-label">Password 
 														<span class="required">*</span></label>
 														<input id="pwd1" type="password" name="pwd1" class="form-control" required>
 													</div>
 												</div>
 												<div class="row form-group">
 													<div class="col-lg-12">
-														<label control-label">Confirmar contraseña 
+														<label control-label">Confirm password 
 														<span class="required">*</span></label>
 														<input type="password" name="pwd2" class="form-control" required>
 													</div>
@@ -130,7 +130,7 @@
 												<footer class="panel-footer">
 													<div class="row">
 														<div class="col-sm-9 col-sm-offset-3">
-															<button type="submit" class="btn btn-primary">Guardar</button>
+															<button type="submit" class="btn btn-primary">Save</button>
 														</div>
 													</div>
 												</footer>

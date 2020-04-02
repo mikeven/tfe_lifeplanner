@@ -109,7 +109,7 @@
 								</div>
 								<hr>
 								<!-- ---------------------------------- -->
-								<div class="form-group opc_repeticiones" id="num_repeticiones">
+								<div class="form-group opc_repeticiones" id="num_repeticiones_semanal">
 									<label class="col-md-5 control-label" for="textareaDefault">Número de repeticiones</label>
 									<div class="col-md-7">
 										<div class="btn-group">
@@ -118,6 +118,27 @@
 											<button type="button" class="btn btn-default nro_rep_frq">3</button>
 											<button type="button" class="btn btn-default nro_rep_frq">4</button>
 											<button type="button" class="btn btn-default nro_rep_frq">5</button>
+										</div>
+										<input type="hidden" name="nrepeticiones" id="val_nrepeticiones">
+									</div>
+								</div>
+								<!-- ---------------------------------- -->
+								<div class="form-group opc_repeticiones" id="num_repeticiones_mensual">
+									<label class="col-md-5 control-label" for="textareaDefault">Número de repeticiones</label>
+									<div class="col-md-7">
+										<div class="btn-group">
+											<button type="button" class="btn btn-default nro_rep_frq">1</button>
+											<button type="button" class="btn btn-default nro_rep_frq">2</button>
+											<button type="button" class="btn btn-default nro_rep_frq">3</button>
+											<button type="button" class="btn btn-default nro_rep_frq">4</button>
+											<button type="button" class="btn btn-default nro_rep_frq">5</button>
+											<button type="button" class="btn btn-default nro_rep_frq">6</button>
+											<button type="button" class="btn btn-default nro_rep_frq">7</button>
+											<button type="button" class="btn btn-default nro_rep_frq">8</button>
+											<button type="button" class="btn btn-default nro_rep_frq">9</button>
+											<button type="button" class="btn btn-default nro_rep_frq">10</button>
+											<button type="button" class="btn btn-default nro_rep_frq">11</button>
+											<button type="button" class="btn btn-default nro_rep_frq">12</button>
 										</div>
 										<input type="hidden" name="nrepeticiones" id="val_nrepeticiones">
 									</div>

@@ -59,21 +59,21 @@
 										<hr>
 										<p class="p_inst">Suggested areas</p>
 
-										<a href="#!" class="sug_area">Spiritual health</a><br>
-										<a href="#!" class="sug_area">Emotional health</a><br>
-										<a href="#!" class="sug_area">Physical health</a><br>
-										<a href="#!" class="sug_area">Work</a><br>
-										<a href="#!" class="sug_area">Family</a><br>
-										<a href="#!" class="sug_area">Home</a><br>
-										<a href="#!" class="sug_area">Public relationships</a><br>
-										<a href="#!" class="sug_area">Social service</a><br>
-										<a href="#!" class="sug_area">Vehicles</a><br>
-										<a href="#!" class="sug_area">Pets</a><br>
-										<a href="#!" class="sug_area">Professional Improvement</a><br>
-										<a href="#!" class="sug_area">Personal improvement</a><br>
-										<a href="#!" class="sug_area">Personal image</a><br>
-										<a href="#!" class="sug_area">Proyects</a><br>
+										<a href="#!" class="sug_area">Friends</a><br>
 										<a href="#!" class="sug_area">Entertainment</a><br>
+										<a href="#!" class="sug_area">Family</a><br>
+										<a href="#!" class="sug_area">Hobbies</a><br>
+										<a href="#!" class="sug_area">Home</a><br>
+										<a href="#!" class="sug_area">Unforeseens</a><br>
+										<a href="#!" class="sug_area">Pets</a><br>
+										<a href="#!" class="sug_area">Office</a><br>
+										<a href="#!" class="sug_area">Personal</a><br>
+										<a href="#!" class="sug_area">Profession</a><br>
+										<a href="#!" class="sug_area">Proyects</a><br>
+										<a href="#!" class="sug_area">Health</a><br>
+										<a href="#!" class="sug_area">Work</a><br>
+										<a href="#!" class="sug_area">Vehicles</a><br>
+										<a href="#!" class="sug_area">Travel & rides</a><br>
 									</div>
 									
 									<footer class="panel-footer">

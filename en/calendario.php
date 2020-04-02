@@ -36,10 +36,8 @@
 
 		<style type="text/css">
 			#selector_act_cal, #frm_edithora{ display: none; } 
-			.data_act_info, .btn_priord, 
-			
-			#act_prioridad, #fecha_act_agenda, #confirmacion_desagendar, 
-			#confirmar_finalizacion{ display: none; }
+			.data_act_info, .btn_priord, #act_prioridad, #fecha_act_agenda, #confirmacion_desagendar, 
+			#confirmar_finalizacion, #repetir_actividad, .opc_repeticiones{ display: none; }
 
 			#act_agendada{ float: right; }
 
@@ -49,12 +47,15 @@
 			#desagendar_act .fa{ color: #000 !important;  }
 
 			#act_agendada .fa{ color: yellow !important; }
-			#confirmar_desagendar_act{ color: #d2322d;  }
+			#confirmar_desagendar_act, .icon_del_fecha{ color: #d2322d !important;  }
 
 			.subt_accion{ color: #000 !important; float: left; }
 			#frm_edithora{ margin-bottom: 50px; }
-			#confirmar_finalizacion{ padding: 20px 0 80px 0; background: #f1f1f1; }
+			#confirmar_finalizacion, #repetir_actividad{ padding: 20px 0 80px 0; background: #f1f1f1; }
 			.tit_fin_act{ text-align: center; }
+			.datepicker{ z-index:99999 !important; }
+			.mmxx{ margin: 5px 0;  } .txfechas_proy{ font-weight: bolder; }
+
 		</style>
 	</head>
 	<body>
@@ -124,6 +125,19 @@
 		<script src="js/fn-calendario.js"></script>
 		<script src="js/fn-actividad.js"></script>
 		<script src="js/validate-extend.js"></script>
+		<script type="text/javascript">
+			/*$.fn.dataTable.moment( 'DD/MM/YY HH:mm A' );
+    
+		    var table = $('#datatable-prioridades').DataTable();
+		    table.order( [ 1, 'asc' ] ).draw();*/
+
+		    $(".fecha_repeticion").datepicker({
+			    isRTL: false,
+			    format: 'dd/mm/yyyy',
+			    autoclose:true,
+			    language: 'es'
+			});
+		</script>
 		<script type="text/javascript">
 			/*var idu = $("#id_ssu").val();
 			$.ajax({
