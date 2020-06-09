@@ -21,7 +21,7 @@
 					</li>
 					<li class="nav-active">
 						<a href="areas.php">
-							<i class="fa fa-cube" aria-hidden="true"></i>
+							<i class="fa fa-cubes" aria-hidden="true"></i>
 							<span>Áreas</span>
 						</a>
 					</li>
@@ -63,13 +63,26 @@
 							<span>Calendario</span>
 						</a>
 					</li>
-					<li class="nav-active">
-						<a href="historial.php">
-							<i class="fa fa-cubes" aria-hidden="true"></i>
+					<li class="nav-parent">
+						<a>
+							<i class="fa fa-header" aria-hidden="true"></i>
 							<span>Historial</span>
 						</a>
+						<ul class="nav nav-children">
+							<li>
+								<a href="historial.php">
+									<i class="fa fa-list-alt" aria-hidden="true"></i>
+									<span>Por Sujeto - Objeto</span>
+								</a>
+							</li>
+							<li>
+								<a href="historial-fechas.php">
+									<i class="fa fa-calendar-o" aria-hidden="true"></i>
+									<span>Por fecha</span>
+								</a>
+							</li>
+						</ul>
 					</li>
-					
 				</ul>
 			</nav>
 

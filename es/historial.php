@@ -1,6 +1,6 @@
 <?php
     /*
-     * TFE Life Planner - Historial
+     * TFE Life Planner - Historial por Sujeto-Objeto
      * 
      */
     session_start();

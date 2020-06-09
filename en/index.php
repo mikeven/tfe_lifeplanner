@@ -43,7 +43,7 @@
 		<section class="body-sign">
 			<div class="center-sign">
 				<a href="/" class="logo pull-left">
-					<img src="../img/tfe_logo_blanco.png" height="54" alt="Porto Admin" />
+					<img src="../img/logo-sopa-blanco.png" height="65" alt="Porto Admin" />
 				</a>
 
 				<div class="panel panel-sign">
@@ -109,7 +109,7 @@
 				</div>
 
 				<p class="text-center text-muted mt-md mb-md">
-					&copy; TFE Life Planner 2019.
+					&copy; SOPA Life Planner 2020.
 				</p>
 			</div>
 		</section>

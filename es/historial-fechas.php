@@ -1,6 +1,6 @@
 <?php
     /*
-     * TFE Life Planner - Historial individual de sujeto-objeto
+     * TFE Life Planner - Historial por fechas
      * 
      */
     session_start();
@@ -8,20 +8,15 @@
     include( "database/bd.php" );
     include( "database/data-acceso.php" );
     include( "database/data-actividad.php" );
-    include( "database/data-sujeto-objeto.php" );
 
     include( "fn/fn-actividad.php" );
     
     checkSession( "" );
-    $idu = $_SESSION["user"]["id"];
+    $titulo_pagina = "Historial general";
 
-    if( isset( $_GET["ids"], $_GET["ido"] ) ){
-        $ids = $_GET["ids"];	$ido = $_GET["ido"];
-        $reg_so = obtenerSujetoObjetoPorids( $dbh, $ids, $ido );
-        $historial = obtenerHistorialSujetoObjeto( $dbh, $ids, $ido );
-    }
-    $titulo_pagina = $reg_so["nsujeto"]." - ".$reg_so["nobjeto"];
-    $breadcrumb = "<a href='historial.php'>Historial</a> / $titulo_pagina";
+    $idu = $_SESSION["user"]["id"];
+    $historial = obtenerHistorial( $dbh, $idu );
+    $breadcrumb = $titulo_pagina;
 ?>
 <!doctype html>
 <html class="fixed">
@@ -58,8 +53,7 @@
 							<section class="panel">
 								<header class="panel-heading">
 									<h2 class="panel-title">
-										Historial
-										<?php echo $reg_so["nsujeto"]." - ".$reg_so["nobjeto"]?>
+										<?php echo $titulo_pagina ?>
 									</h2>
 								</header>
 								<div id="tabla_actividades_prioridad" class="panel-body">

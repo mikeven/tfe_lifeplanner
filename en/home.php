@@ -1,6 +1,6 @@
 <?php
     /*
-     * TFE Life Planner - Pagina de inicio
+     * SOPA Life Planner - Pagina de inicio
      * 
      */
     session_start();
@@ -17,7 +17,7 @@
 <html class="fixed">
 	<head>
 		<!-- Título -->
-		<title>Inicio | TFE Life Planner </title>
+		<title>Inicio | SOPA Life Planner </title>
 		<?php include( "secciones/meta-tags.html" );?>
 
 		<?php include( "secciones/include-css.html" );?>
@@ -35,7 +35,7 @@
 				<!-- end: sidebar -->
 				<section role="main" class="content-body">
 					<?php include( "secciones/titulo_pagina.php" ); ?>
-					<h3 class="mt-none">Welcome to TFE Life Planner</h3>
+					<h3 class="mt-none">Welcome to SOPA Life Planner</h3>
 				</section>
 			</div>
 			
