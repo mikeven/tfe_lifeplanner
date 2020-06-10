@@ -63,13 +63,26 @@
 							<span>Calendar</span>
 						</a>
 					</li>
-					<li class="nav-active">
-						<a href="historial.php">
-							<i class="fa fa-cubes" aria-hidden="true"></i>
+					<li class="nav-parent">
+						<a>
+							<i class="fa fa-header" aria-hidden="true"></i>
 							<span>History</span>
 						</a>
+						<ul class="nav nav-children">
+							<li>
+								<a href="historial.php">
+									<i class="fa fa-list-alt" aria-hidden="true"></i>
+									<span>By Subject - Object</span>
+								</a>
+							</li>
+							<li>
+								<a href="historial-fechas.php">
+									<i class="fa fa-calendar-o" aria-hidden="true"></i>
+									<span>By Date</span>
+								</a>
+							</li>
+						</ul>
 					</li>
-					
 				</ul>
 			</nav>
 
