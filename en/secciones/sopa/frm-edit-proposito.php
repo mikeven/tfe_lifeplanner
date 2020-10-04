@@ -3,7 +3,7 @@
 		<form id="frm-editproposito" class="form-horizontal mb-lg">
 			<header class="panel-heading">
 				<h2 class="panel-title">
-					Edit purpose <span id="lab_np_obj"></span>
+					Edit provider <span id="lab_np_obj"></span>
 				</h2>
 			</header>
 			<div class="panel-body">
@@ -11,7 +11,7 @@
 				<div class="form-group mt-lg">
 					<label class="col-sm-3 control-label">Description</label>
 					<div class="col-sm-9">
-						<input id="desc_edit_prop" type="text" name="descripcion" class="form-control" placeholder="Enter new description for this purpose" required/>
+						<input id="desc_edit_prop" type="text" name="descripcion" class="form-control" placeholder="Enter new description for this provider" required/>
 					</div>
 				</div>
 			</div>

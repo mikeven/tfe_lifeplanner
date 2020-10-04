@@ -81,7 +81,7 @@
 		<?php if( !isset( $carga_so ) ) { ?>
 		<footer id="agg-s-o" class="panel-footer">
 			<button type="submit" class="mb-xs mt-xs mr-xs btn btn-obj">
-				Agregar propósitos <i class="fa fa-arrow-right"></i>
+				Agregar proveedores <i class="fa fa-arrow-right"></i>
 			</button>
 		</footer>
 		<?php } ?>

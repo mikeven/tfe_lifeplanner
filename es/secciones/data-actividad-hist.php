@@ -22,7 +22,7 @@
 						</div>
 						<div class="info">
 							<i class="fa fa-crosshairs"></i>
-							<strong >Propósito:</strong>
+							<strong >Proveedor:</strong>
 							<span id="tx_prop_act"> </span>
 						</div>
 						

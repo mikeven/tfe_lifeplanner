@@ -63,7 +63,7 @@
 		</div>
 		<footer id="agg-s-o" class="panel-footer">
 			<button type="submit" class="mb-xs mt-xs mr-xs btn btn-obj">
-				Add purposes <i class="fa fa-arrow-right"></i>
+				Add providers <i class="fa fa-arrow-right"></i>
 			</button>
 		</footer>
 	</form>

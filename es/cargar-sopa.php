@@ -76,12 +76,12 @@
 						<div class="col-md-8 col-sm-6 col-xs-12">
 							<section id="arbol_opa" class="panel">
 								<header class="panel-heading">
-									<h2 class="panel-title">Propósitos - Actividades</h2>
+									<h2 class="panel-title">Proovedores - Actividades</h2>
 									<p class="panel-subtitle">
 										<i class="fa fa-puzzle-piece ley_o" aria-hidden="true"></i> 
 										<span class="ley_o">Objetos</span> | 
 										<i class="fa fa-crosshairs ley_p" aria-hidden="true"></i> 
-										<span class="ley_p">Propósitos</span> |
+										<span class="ley_p">Proovedores</span> |
 										<i class="fa fa-thumb-tack ley_a" aria-hidden="true"></i> 
 										<span class="ley_a">Actividades</span>
 									</p>

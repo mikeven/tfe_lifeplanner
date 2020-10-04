@@ -58,23 +58,27 @@
 										</div>
 										<hr>
 										<p class="p_inst">Áreas sugeridas</p>
-
-										<a href="#!" class="sug_area">Amigos</a><br>
+										<a href="#!" class="sug_area">Documentos personales</a><br>
 										<a href="#!" class="sug_area">Entretenimiento</a><br>
 										<a href="#!" class="sug_area">Familia</a><br>
+										<a href="#!" class="sug_area">Finanzas</a><br>
 										<a href="#!" class="sug_area">Hobbies</a><br>
 										<a href="#!" class="sug_area">Hogar</a><br>
+										<a href="#!" class="sug_area">Imagen personal</a><br>
 										<a href="#!" class="sug_area">Imprevistos</a><br>
+										<a href="#!" class="sug_area">Labor social</a><br>
 										<a href="#!" class="sug_area">Mascotas</a><br>
+										<a href="#!" class="sug_area">Mejoramiento personal</a><br>
+										<a href="#!" class="sug_area">Mejoramiento profesional</a><br>
 										<a href="#!" class="sug_area">Oficina</a><br>
-										<a href="#!" class="sug_area">Personal</a><br>
-										<a href="#!" class="sug_area">Profesión</a><br>
 										<a href="#!" class="sug_area">Proyectos</a><br>
-										<a href="#!" class="sug_area">Salud</a><br>
+										<a href="#!" class="sug_area">Publicidad y Mercadeo</a><br>
+										<a href="#!" class="sug_area">Relaciones sociales</a><br>
+										<a href="#!" class="sug_area">Salud emocional</a><br>
+										<a href="#!" class="sug_area">Salud espiritual</a><br>
+										<a href="#!" class="sug_area">Salud física</a><br>
 										<a href="#!" class="sug_area">Trabajo</a><br>
 										<a href="#!" class="sug_area">Vehículos</a><br>
-										<a href="#!" class="sug_area">Viajes y paseos</a><br>
-										
 									</div>
 									<footer class="panel-footer">
 										<button class="btn btn-primary" type="submit">Agregar</button>

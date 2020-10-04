@@ -100,9 +100,9 @@
 function iniciarBotonBorrarProposito( param ){
     //Asigna los textos de la ventana de confirmación para borrar un propósito
     iniciarVentanaModal( "btn_borrar_proposito", "btn_canc", 
-                         "Eliminar " + param, 
-                         "¿Confirma que desea eliminar propósito?", 
-                         "Confirmar acción" );
+                         "Delete " + param, 
+                         "Confirm you want to delete this provider", 
+                         "Confirm action" );
 }
 /* --------------------------------------------------------- */
 function agregarProposito(){

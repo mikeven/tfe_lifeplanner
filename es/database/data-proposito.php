@@ -102,10 +102,10 @@
 		$rsp = agregarProposito( $dbh, $proposito );
 		if( $rsp != 0 ){
 			$res["exito"] = 1;
-			$res["mje"] = "Propósito registrado con éxito";
+			$res["mje"] = "Proveedor registrado con éxito";
 		}else{
 			$res["exito"] = 1;
-			$res["mje"] = "Error al registrar propósito";
+			$res["mje"] = "Error al registrar proveedor";
 		}
 
 		echo json_encode( $res );
@@ -122,10 +122,10 @@
 
 		if( $rsp != 0 ){
 			$res["exito"] = 1;
-			$res["mje"] = "Datos de propósito modificados";
+			$res["mje"] = "Datos de proveedor modificados";
 		}else{
 			$res["exito"] = 0;
-			$res["mje"] = "Error al editar propósito";
+			$res["mje"] = "Error al editar proveedor";
 		}
 
 		echo json_encode( $res );
@@ -143,7 +143,7 @@
 		}else{
 			eliminarProposito( $dbh, $idp );
 			$res["exito"] = 1;
-			$res["mje"] = "Propósito eliminado con éxito";
+			$res["mje"] = "Proveedor eliminado con éxito";
 		}
 		echo json_encode( $res );
 	}

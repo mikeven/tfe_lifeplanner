@@ -102,10 +102,10 @@
 		$rsp = agregarProposito( $dbh, $proposito );
 		if( $rsp != 0 ){
 			$res["exito"] = 1;
-			$res["mje"] = "Purpose created successfully";
+			$res["mje"] = "Provider created successfully";
 		}else{
 			$res["exito"] = 1;
-			$res["mje"] = "There was a problem creating purpose";
+			$res["mje"] = "There was a problem creating provider";
 		}
 
 		echo json_encode( $res );
@@ -122,10 +122,10 @@
 
 		if( $rsp != 0 ){
 			$res["exito"] = 1;
-			$res["mje"] = "Purpose updated successfully";
+			$res["mje"] = "Provider updated successfully";
 		}else{
 			$res["exito"] = 0;
-			$res["mje"] = "There was a problem updating purpose";
+			$res["mje"] = "There was a problem updating provider";
 		}
 
 		echo json_encode( $res );
@@ -139,11 +139,11 @@
 		
 		if( registroAsociadoTabla( $dbh, "actividad", "proposito_id", $idp ) ){
 			$res["exito"] = -1;
-			$res["mje"] = "Activities from purpose must be deleted first";
+			$res["mje"] = "Activities from provider must be deleted first";
 		}else{
 			eliminarProposito( $dbh, $idp );
 			$res["exito"] = 1;
-			$res["mje"] = "Purpose deleted successfully";
+			$res["mje"] = "Provider deleted successfully";
 		}
 		echo json_encode( $res );
 	}

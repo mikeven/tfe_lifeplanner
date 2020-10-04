@@ -67,10 +67,12 @@
 											<i class="fa fa-edit" aria-hidden="true"></i>
 											</a>  
 											<?php if( $a["estado"] == 'creada' ) { ?>
-											   |<a href="#confirmar-accion" 
+											   |
+											   <a href="#confirmar-accion" 
 												class="modal-sizes modal-with-zoom-anim elim_actividad" 
 												data-ida="<?php echo $a["id"] ?>"
-												data-desc="<?php echo "(".strtoupper( $a["tipo"] ).") ". descActividad( $a )?>"> <i class="fa fa-times" aria-hidden="true"></i>
+												data-desc="<?php echo "(".strtoupper( $a["tipo"] ).") ". descActividad( $a )?>">
+													<i class="fa fa-times" aria-hidden="true"></i>
 												</a>
 											<?php } ?>
 										</div>
@@ -100,9 +102,9 @@
 					<a href="#frm-proposito" class="modal-sizes modal-with-zoom-anim btn_nprop" 
 						data-iso="<?php echo $so["id_so"]?>" 
 						data-n-so="<?php echo $so['nsujeto'].' :: '.$o['nombre']?>"
-						data-toggle="tooltip" data-placement="top" title="Agregar propósito">
+						data-toggle="tooltip" data-placement="top" title="Agregar proveedor">
 							<button type="button" class="mb-xs mt-xs mr-xs btn btn-sm btn-pro btn-no-ft">
-								<i class="fa fa-plus" aria-hidden="true"></i> Propósito
+								<i class="fa fa-plus" aria-hidden="true"></i> Proveedor
 							</button>
 						</a>
 					</div>

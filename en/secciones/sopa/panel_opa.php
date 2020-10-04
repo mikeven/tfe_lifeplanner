@@ -103,9 +103,9 @@
 					<a href="#frm-proposito" class="modal-sizes modal-with-zoom-anim btn_nprop" 
 						data-iso="<?php echo $so["id_so"]?>" 
 						data-n-so="<?php echo $so['nsujeto'].' :: '.$o['nombre']?>"
-						data-toggle="tooltip" data-placement="top" title="Add purpose">
+						data-toggle="tooltip" data-placement="top" title="Add provider">
 							<button type="button" class="mb-xs mt-xs mr-xs btn btn-sm btn-pro btn-no-ft">
-								<i class="fa fa-plus" aria-hidden="true"></i> Purpose
+								<i class="fa fa-plus" aria-hidden="true"></i> Provider
 							</button>
 						</a>
 					</div>

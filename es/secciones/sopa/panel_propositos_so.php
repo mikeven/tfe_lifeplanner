@@ -49,7 +49,7 @@
 					<hr>
 					<button type="button" class="btn_gpa mb-xs mt-xs mr-xs btn btn-primary">
 						<a href="<?php echo $lnk_gestion_pa ?>">
-						Gestionar propósitos y actividades</a>
+						Gestionar proveedores y actividades</a>
 					</button>
 				</div>
 			</div>
