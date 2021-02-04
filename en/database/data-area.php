@@ -11,6 +11,16 @@
 		return obtenerListaRegistros( mysqli_query( $dbh, $q ) );
 	}
 	/* --------------------------------------------------------- */
+	function obtenerListaAreasSO( $dbh, $idu ){
+		// Devuelve todas las áreas asociadas a registros Sujeto - Objeto
+		$q = "select distinct(a.id), a.nombre 
+				from area a, sujeto_objeto so, sesion ss, usuario u  
+				where so.area_id = a.id and so.sesion_id = ss.id 
+				and ss.usuario_id = u.id and u.id = $idu";
+
+		return obtenerListaRegistros( mysqli_query( $dbh, $q ) );
+	}
+	/* --------------------------------------------------------- */
 	function obtenerAreaPorId( $dbh, $id ){
 		// Devuelve el registro de un área dado su id
 		$q = "select id, nombre, date_format(creado,'%d/%m/%Y') as fregistro 

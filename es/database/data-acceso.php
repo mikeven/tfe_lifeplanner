@@ -150,6 +150,7 @@
 		// Invocación desde: js/fn-usuario.js
 		session_start();
 		include( "bd.php" );
+
 		$email 	= escaparTexto( $dbh, $_POST["email"] );
 		$pwd 	= escaparTexto( $dbh, $_POST["password"] );
 		$login 	= checkLogin( $dbh, $email, $pwd );

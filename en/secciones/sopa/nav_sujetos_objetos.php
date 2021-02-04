@@ -9,7 +9,7 @@
 	<header class="panel-heading">
 		<h2 class="panel-title">
 			<i class="fa fa-database"></i> |
-			<strong >Other subjects - objects</strong>
+			<strong >Other subjects - objectives</strong>
 		</h2>
 	</header>
 	<div class="panel-body">

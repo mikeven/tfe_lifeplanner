@@ -1,7 +1,7 @@
 <section class="panel">
 	<form id="frm_sujeto_objeto">
 		<header class="panel-heading">
-			<h2 class="panel-title">Subject - Object</h2>
+			<h2 class="panel-title">Subject - Objectives</h2>
 		</header>
 		<input type="hidden" name="idu" value="<?php echo $idu ?>">
 		<input type="hidden" name="idsesion" value="<?php echo $idsesion ?>">
@@ -34,7 +34,7 @@
 			</div>
 			<hr>
 			<div id="agg_objeto" class="form-group">
-				<label class="control-label">Object</label>
+				<label class="control-label">Objective</label>
 				<table width="100%">
 					<th width="80%">
 						<select id="lobjetos" class="form-control" required name="idobjeto">
@@ -68,7 +68,7 @@
 					<input type="hidden" name="idsujeto" value="<?php echo $ids?>">
 				</div>
 				<div class="form-group">
-					<label class="control-label">Object</label>
+					<label class="control-label">Objective</label>
 					<select id="lobjetos" class="form-control" required disabled>
 						<option value="<?php echo $ido ?>">
 							<?php echo $s_o[0]["nobjeto"] ?>

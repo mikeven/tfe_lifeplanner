@@ -32,9 +32,9 @@
 						</a>
 						<ul class="nav nav-children">
 							<li>
-								<a href="s-o-p-a.php">
+								<a href="indice-general.php">
 									<i class="fa fa-database" aria-hidden="true"></i>
-									<span>S.O.P.A.</span>
+									<span>General Index </span>
 								</a>
 							</li>
 							<li>
@@ -46,7 +46,7 @@
 							<li>
 								<a href="objetos.php">
 									<i class="fa fa-puzzle-piece" aria-hidden="true"></i>
-									<span>Objects</span>
+									<span>Objectives</span>
 								</a>
 							</li>
 						</ul>
@@ -72,7 +72,7 @@
 							<li>
 								<a href="historial.php">
 									<i class="fa fa-list-alt" aria-hidden="true"></i>
-									<span>By Subject - Object</span>
+									<span>By Subject - Objectives</span>
 								</a>
 							</li>
 							<li>

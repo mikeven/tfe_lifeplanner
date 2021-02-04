@@ -49,7 +49,7 @@
 				</div>
 				<div class="summary-footer">
 					<a href="#!" id="dar_p" class="btn_priord" data-ida="">
-						<button type="button" class="mb-xs mt-xs mr-xs btn btn-primary">
+						<button type="button" class="mb-xs mt-xs mr-xs btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
 							<i class="fa fa-star"></i> Prioridad
 						</button>
 					</a>

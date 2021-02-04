@@ -85,9 +85,9 @@ function aggS_O(){
 function iniciarBotonBorrarObjeto(){
     //Asigna los textos de la ventana de confirmación para borrar un objeto
     iniciarVentanaModal( "btn_borrar_objeto", "btn_canc", 
-                         "Eliminar objeto", 
-                         "¿Confirma que desea eliminar objeto", 
-                         "Confirmar acción" );
+                         "Delete objective", 
+                         "Confirm you want to delete objective", 
+                         "Confirm action" );
 }
 /* --------------------------------------------------------- */
 function agregarObjeto( frm ){
@@ -108,13 +108,13 @@ function agregarObjeto( frm ){
         	res = jQuery.parseJSON( response );
             if( res.exito == 1 ){
                 if( frm == "#frm-sopa-objeto" ){
-                    notificar( "Objeto", res.mje, "success" );
+                    notificar( "Objective", res.mje, "success" );
                     agregarElementoLista( "#lobjetos", res.reg );
                     aggS_O();
                 }
                 if( frm == "#frm-nuevo-objeto" ){ location.reload(); }
             }else
-                notificar( "Objeto", res.mje, "error" );
+                notificar( "Objective", res.mje, "error" );
 
             $("#cl_frm-objeto").click();
         }
@@ -137,11 +137,11 @@ function editarObjeto( frm ){
             console.log( response );
             res = jQuery.parseJSON( response );
             if( res.exito == 1 ){
-                notificar( "Objeto", res.mje, "success" );
+                notificar( "Objective", res.mje, "success" );
                 setTimeout( function() { window.location = "objetos.php"; }, 3000 );
             }
             else
-                notificar( "Objeto", res.mje, "error" );
+                notificar( "Objective", res.mje, "error" );
         }
     });
 }
@@ -156,11 +156,11 @@ function eliminarObjeto( id ){
             console.log( response );
             res = jQuery.parseJSON(response);
             if( res.exito == 1 ){ 
-                notificar( "Objetos", res.mje, "success" );
+                notificar( "Objective", res.mje, "success" );
                 setTimeout( function() { window.location = "objetos.php"; }, 3000 );
             }
             if( res.exito == -1 ){ 
-                notificar( "Eliminar objeto", res.mje, "error" );
+                notificar( "Objective", res.mje, "error" );
             }
         }
     });

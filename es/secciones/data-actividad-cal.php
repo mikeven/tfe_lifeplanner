@@ -19,7 +19,7 @@
 
 						<div class="info">
 							<i class="fa fa-puzzle-piece"></i>
-							<strong >Objeto:</strong>
+							<strong >Objetivo:</strong>
 							<span id="tx_objeto_act"> </span>
 						</div>
 			

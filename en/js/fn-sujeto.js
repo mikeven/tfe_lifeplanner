@@ -96,9 +96,9 @@ function bloquearListasAreaSujeto(){
 function iniciarBotonBorrarSujeto(){
     //Asigna los textos de la ventana de confirmación para borrar un sujeto
     iniciarVentanaModal( "btn_borrar_sujeto", "btn_canc", 
-                         "Eliminar sujeto", 
-                         "¿Confirma que desea eliminar sujeto", 
-                         "Confirmar acción" );
+                         "Delete subject", 
+                         "Confirm you want to delete subject", 
+                         "Confirm action" );
 }
 /* --------------------------------------------------------- */
 function agregarSujeto( frm ){

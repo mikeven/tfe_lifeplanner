@@ -70,6 +70,16 @@
        $("#areanombre").val( $(this).html() );
     });
 
+    $("#lareas_so").on( "change", function(){
+        // Recarga la página pasando por parámetro el área filtrada
+
+        var ida = $(this).val();
+        if( ida != "" )
+            window.location = "indice-general.php?area_id=" + ida;
+        else
+            window.location = "indice-general.php";
+    });
+
     $(document).on( 'click', '#btn_borrar_area', function(){
         $("#btn_canc").click();
         eliminarArea( $("#id-area-e").val() );

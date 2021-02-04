@@ -5599,7 +5599,7 @@ button.close {
 }
 .tooltip {
   position: absolute;
-  z-index: 1070;
+  z-index: 5070 !important;
   display: block;
   visibility: visible;
   font-size: 12px;

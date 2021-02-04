@@ -18,6 +18,19 @@
 		return obtenerListaRegistros( mysqli_query( $dbh, $q ) );
 	}
 	/* --------------------------------------------------------- */
+	function obtenerIndiceSOPorUsuarioArea( $dbh, $idu, $ida ){
+		// Devuelve todos los registros de Sujeto - Objeto de un usuario por área
+
+		$q = "select DISTINCT s.id, o.id, s.id as idsujeto, s.nombre nsujeto, 
+		o.id as idobjeto, o.nombre as nobjeto 
+		from sujeto_objeto so, sujeto s, objeto o, usuario u, sesion ss, area a 
+		where s.id = so.sujeto_id and o.id = so.objeto_id and so.sesion_id = ss.id 
+		and ss.usuario_id = u.id and so.area_id = a.id and a.id = $ida and 
+		u.id = $idu order by nsujeto ASC, nobjeto ASC";
+
+		return obtenerListaRegistros( mysqli_query( $dbh, $q ) );
+	}
+	/* --------------------------------------------------------- */
 	function obtenerActividadSOPAPorId( $dbh, $id_act ){
 		// Procesa el registro de nueva área
 		$q = "select ss.id as idsesion, act.id as idact, act.tipo as tipo_act, 

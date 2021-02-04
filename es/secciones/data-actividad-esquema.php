@@ -17,7 +17,7 @@
 						</div>
 						<div class="info">
 							<i class="fa fa-puzzle-piece"></i>
-							<strong >Objeto:</strong>
+							<strong >Objetivo:</strong>
 							<span id="tx_objeto_act"> </span>
 						</div>
 						<div class="info">
@@ -49,6 +49,11 @@
 								</div>
 								<div> 
 									<b>Motivo: </b> <span id="act_motivo"></span> 
+								</div>
+							</div>
+							<div id="info-fecha">
+								<div> 
+									<b>Calendario: </b> <span id="act_fecha"></span> 
 								</div>
 							</div>
 						</div>

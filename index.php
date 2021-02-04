@@ -1,6 +1,6 @@
 <?php
     /*
-     * TFE Life Planner
+     * SOPA Life Planner
      * 
      */
     header('Location: es/');

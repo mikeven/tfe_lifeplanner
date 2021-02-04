@@ -1,7 +1,7 @@
 <section class="panel">
 	<form id="frm_sujeto_objeto">
 		<header class="panel-heading">
-			<h2 class="panel-title">Subject - Object</h2>
+			<h2 class="panel-title">Subject - Objectives</h2>
 		</header>
 		<input type="hidden" name="idu" value="<?php echo $idu;?>">
 		<div class="panel-body">
@@ -40,7 +40,7 @@
 				</table>
 			</div>
 			<div id="agg_objeto" class="form-group">
-				<label class="control-label">Object</label>
+				<label class="control-label">Objectives</label>
 				<table width="100%">
 					<th width="80%">
 						<select id="lobjetos" class="form-control" required name="idobjeto">

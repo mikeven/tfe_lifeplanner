@@ -17,7 +17,7 @@
 						</div>
 						<div class="info">
 							<i class="fa fa-puzzle-piece"></i>
-							<strong >Object:</strong>
+							<strong >Objective:</strong>
 							<span id="tx_objeto_act"> </span>
 						</div>
 						<div class="info">

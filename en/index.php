@@ -11,7 +11,7 @@
 <html class="fixed">
 	<head>
 		<!-- Título -->
-		<title>Login | TFE Life Planner</title>
+		<title>Login | SOPA Life Planner</title>
 		<?php include( "secciones/meta-tags.html" );?>
 
 		<!-- Mobile Metas -->

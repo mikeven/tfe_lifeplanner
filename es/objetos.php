@@ -1,6 +1,6 @@
 <?php
     /*
-     * TFE Life Planner - Objetos
+     * TFE Life Planner - Objetivos
      * 
      */
     session_start();
@@ -9,7 +9,7 @@
     include( "database/data-acceso.php" );
     include( "database/data-objeto.php" );
     checkSession( "" );
-    $titulo_pagina = "Objetos";
+    $titulo_pagina = "Objetivos";
 
     $idu = $_SESSION["user"]["id"];
     $objetos = obtenerListaObjetos( $dbh, $idu );
@@ -45,10 +45,10 @@
 								<form id="frm-nuevo-objeto" class="form-horizontal">
 									<input type="hidden" name="idu" value="<?php echo $idu?>">
 									<header class="panel-heading">
-										<h2 class="panel-title">Agregar objeto</h2>
+										<h2 class="panel-title">Agregar objetivo</h2>
 									</header>
 									<div class="panel-body">
-										<p class="p_inst">Escriba un nombre para el objeto nuevo</p>
+										<p class="p_inst">Escriba un nombre para el objetivo nuevo</p>
 										
 										<div class="row form-group">
 											<div class="col-lg-12">
@@ -65,7 +65,7 @@
 						<div class="col-md-8 col-sm-6 col-xs-12">
 							<section class="panel">
 								<header class="panel-heading">
-									<h2 class="panel-title">Objetos registrados</h2>
+									<h2 class="panel-title">Objetivos registrados</h2>
 								</header>
 								<div id="tabla_objetos" class="panel-body">
 									<table id="datatable-default"

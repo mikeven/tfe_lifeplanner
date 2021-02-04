@@ -140,7 +140,7 @@
 		$ids = $_POST["elim_sujeto"];
 		if( tienePropositosSujeto( $dbh, $ids ) ){
 			$res["exito"] = -1;
-			$res["mje"] = "Cannot delete subject, purposes are linked to subject";
+			$res["mje"] = "Cannot delete subject, providers are linked to subject";
 		} else {
 			eliminarSujeto( $dbh, $ids );
 			eliminarSO_Sujeto( $dbh, $ids );

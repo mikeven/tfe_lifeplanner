@@ -80,9 +80,9 @@ function cargarOpcionesLista( regs, idlista ){
 function iniciarBotonBorrarSujetoObjeto( param ){
     //Asigna los textos de la ventana de confirmación para borrar un sujeto-objeto
     iniciarVentanaModal( "btn_borrar_so", "btn_canc", 
-                         "Eliminar " + param, 
-                         "¿Confirma que desea eliminar sujeto - objeto?", 
-                         "Confirmar acción" );
+                         "Delete " + param, 
+                         "¿Confirm you want to delete this subject - objective", 
+                         "Confirm action" );
 }
 /* --------------------------------------------------------- */
 function agregarSujetoObjeto(){

@@ -1,6 +1,6 @@
 <?php
 	/* --------------------------------------------------------- */
-	/* TFE Life Planner - Acceso a objetos */
+	/* TFE Life Planner - Funciones de datos de objetivos */
 	/* --------------------------------------------------------- */
 	/* --------------------------------------------------------- */
 	/* --------------------------------------------------------- */
@@ -84,15 +84,15 @@
 			$objeto["id"] = $id;
 			if( $id != 0 ){
 				$res["exito"] = 1;
-				$res["mje"] = "Objeto registrado con éxito";
+				$res["mje"] = "Objetivo registrado con éxito";
 				$res["reg"] = $objeto;
 			}else{
 				$res["exito"] = 1;
-				$res["mje"] = "Error al registrar objeto";
+				$res["mje"] = "Error al registrar objetivo";
 			}
 		}else{ 
 			$res["exito"] = -2;
-			$res["mje"] = "Nombre de objeto ya registrado";
+			$res["mje"] = "Nombre de objetivo ya registrado";
 		}
 
 		echo json_encode( $res );
@@ -110,15 +110,15 @@
 			$rsp = editarObjeto( $dbh, $objeto );
 			if( $rsp != 0 ){
 				$res["exito"] = 1;
-				$res["mje"] = "Datos de objeto modificados";
+				$res["mje"] = "Datos de objetivo modificados";
 			}else{
 				$res["exito"] = 0;
-				$res["mje"] = "Error al modificar objeto";
+				$res["mje"] = "Error al modificar objetivo";
 			}
 		}
 		else{ 
 			$rsp = -2;
-			$res["mje"] = "Nombre de objeto ya registrado";
+			$res["mje"] = "Nombre de objetivo ya registrado";
 		}
 
 		echo json_encode( $res );
@@ -131,12 +131,12 @@
 		$ido = $_POST["elim_objeto"];
 		if( tienePropositosObjeto( $dbh, $ido ) ){
 			$res["exito"] = -1;
-			$res["mje"] = "No puede eliminar objeto, posee propósitos asociados";
+			$res["mje"] = "No puede eliminar objetivo, posee propósitos asociados";
 		}else{
 			eliminarObjeto( $dbh, $ido );
 			eliminarSO_Objeto( $dbh, $ido );
 			$res["exito"] = 1;
-			$res["mje"] = "Objeto eliminado con éxito";
+			$res["mje"] = "Objetivo eliminado con éxito";
 		}
 		echo json_encode( $res );
 	}

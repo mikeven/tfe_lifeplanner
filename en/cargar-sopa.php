@@ -79,7 +79,7 @@
 									<h2 class="panel-title">Providers - Activities</h2>
 									<p class="panel-subtitle">
 										<i class="fa fa-puzzle-piece ley_o" aria-hidden="true"></i> 
-										<span class="ley_o">Objects</span> | 
+										<span class="ley_o">Objectives</span> | 
 										<i class="fa fa-crosshairs ley_p" aria-hidden="true"></i> 
 										<span class="ley_p">Providers</span> |
 										<i class="fa fa-thumb-tack ley_a" aria-hidden="true"></i> 

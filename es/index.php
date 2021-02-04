@@ -11,7 +11,7 @@
 <html class="fixed">
 	<head>
 		<!-- Título -->
-		<title>Ingreso | TFE Life Planner</title>
+		<title>Ingreso | SOPA Life Planner</title>
 		<?php include( "secciones/meta-tags.html" );?>
 
 		<!-- Mobile Metas -->
@@ -20,6 +20,7 @@
 		<!-- Web Fonts  -->
 		<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
 
+		<link rel="icon" type="image/png" href="../img/favicon.png">
 		<!-- Vendor CSS -->
 		<link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.css" />
 		<link rel="stylesheet" href="../assets/vendor/font-awesome/css/font-awesome.css" />
@@ -63,7 +64,7 @@
 				<div class="panel panel-sign">
 					<div class="panel-title-sign mt-xl text-right">
 						<h2 class="title text-uppercase text-bold m-none"><i class="fa fa-user mr-xs"></i> Ingresar</h2>
-						<h2 class="title text-uppercase text-bold m-none lang-select">
+						<h2 class="title text-uppercase text-bold m-none lang-select hidden">
 							<a href="../en/"><i class="fa fa-flag"></i> English</a>
 						</h2>
 					</div>

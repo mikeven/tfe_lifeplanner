@@ -140,7 +140,7 @@
 		$ids = $_POST["elim_sujeto"];
 		if( tienePropositosSujeto( $dbh, $ids ) ){
 			$res["exito"] = -1;
-			$res["mje"] = "No puede eliminar sujeto, posee propósitos asociados";
+			$res["mje"] = "No puede eliminar sujeto, posee proveedores asociados";
 		} else {
 			eliminarSujeto( $dbh, $ids );
 			eliminarSO_Sujeto( $dbh, $ids );

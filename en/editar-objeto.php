@@ -9,7 +9,7 @@
     include( "database/data-acceso.php" );
     include( "database/data-objeto.php" );
     checkSession( "" );
-    $titulo_pagina = "Edit object";
+    $titulo_pagina = "Edit objective";
 
     $idu = $_SESSION["user"]["id"];
     if( isset( $_GET["id"] ) ){
@@ -49,10 +49,10 @@
 									<input type="hidden" name="id" 
 									value="<?php echo $objeto['id']?>">
 									<header class="panel-heading">
-										<h2 class="panel-title">Edit object name</h2>
+										<h2 class="panel-title">Edit objective name</h2>
 									</header>
 									<div class="panel-body">
-										<p class="p_inst">Enter a new name for this object</p>
+										<p class="p_inst">Enter a new name for this objective</p>
 										<div class="row form-group">
 											<div class="col-lg-12">
 												<input type="text" name="nombre" placeholder="Name" class="form-control" required 

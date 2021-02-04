@@ -148,13 +148,13 @@
 					$res["idss"] = $idss;
 				
 				}else
-					$res["mje"] = "There was a problem creating subject-object record";
+					$res["mje"] = "There was a problem creating subject-objective record";
 			}
 			else 
-				$res["mje"] = "Subject-object record already exists in this session";
+				$res["mje"] = "Subject-objective record already exists in this session";
 			
 		}else
-			$res["mje"] = "There was a problem saving subject-object session";
+			$res["mje"] = "There was a problem saving subject-objective session";
 		
 		$res["exito"] = $exito;
 
@@ -171,11 +171,11 @@
 		$propositos = obtenerListaPropositos( $dbh, $_POST["elim_s_o"] );
 		if( count( $propositos ) > 0 ){
 			$res["exito"] = -1;
-			$res["mje"] = "Purposes from this subject-object must be deleted first.";
+			$res["mje"] = "Purposes from this subject-objective must be deleted first.";
 		}else{
 			eliminarSO( $dbh, $_POST["elim_s_o"] );
 			$res["exito"] = 1;
-			$res["mje"] = "Suject-Object deleted successfully";
+			$res["mje"] = "Suject-Objective deleted successfully";
 		}
 		echo json_encode( $res );
 	}

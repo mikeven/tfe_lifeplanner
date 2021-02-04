@@ -40,7 +40,7 @@
 				</table>
 			</div>
 			<div id="agg_objeto" class="form-group">
-				<label class="control-label">Objeto</label>
+				<label class="control-label">Objetivos</label>
 				<table width="100%">
 					<th width="80%">
 						<select id="lobjetos" class="form-control" required name="idobjeto">

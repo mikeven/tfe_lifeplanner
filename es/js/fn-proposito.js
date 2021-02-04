@@ -106,7 +106,7 @@ function iniciarBotonBorrarProposito( param ){
 }
 /* --------------------------------------------------------- */
 function agregarProposito(){
-    //Invoca al servidor para agregar nuevo registro sujeto - objeto
+    //Invoca al servidor para agregar nuevo proveedor
     var frm_nprop = $('#frm-nproposito').serialize();
     var espera = "<img src='img/loading.gif' width='60'>";
     

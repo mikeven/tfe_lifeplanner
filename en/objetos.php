@@ -9,7 +9,7 @@
     include( "database/data-acceso.php" );
     include( "database/data-objeto.php" );
     checkSession( "" );
-    $titulo_pagina = "Objects";
+    $titulo_pagina = "Objectives";
 
     $idu = $_SESSION["user"]["id"];
     $objetos = obtenerListaObjetos( $dbh, $idu );
@@ -45,10 +45,10 @@
 								<form id="frm-nuevo-objeto" class="form-horizontal">
 									<input type="hidden" name="idu" value="<?php echo $idu?>">
 									<header class="panel-heading">
-										<h2 class="panel-title">Add object</h2>
+										<h2 class="panel-title">Add objectives</h2>
 									</header>
 									<div class="panel-body">
-										<p class="p_inst">Enter a name for a new object</p>
+										<p class="p_inst">Enter a name for a new objectives</p>
 										
 										<div class="row form-group">
 											<div class="col-lg-12">
@@ -57,7 +57,7 @@
 										</div>
 									</div>
 									<footer class="panel-footer">
-										<button class="btn btn-primary" type="submit">Agregar</button>
+										<button class="btn btn-primary" type="submit">Add</button>
 									</footer>
 								</form>
 							</section>
@@ -65,7 +65,7 @@
 						<div class="col-md-8 col-sm-6 col-xs-12">
 							<section class="panel">
 								<header class="panel-heading">
-									<h2 class="panel-title">Registered objects</h2>
+									<h2 class="panel-title">Registered objectives</h2>
 								</header>
 								<div id="tabla_objetos" class="panel-body">
 									<table id="datatable-default"

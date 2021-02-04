@@ -5,14 +5,14 @@
 	/* --------------------------------------------------------- */
 	/* --------------------------------------------------------- */
 	function obtenerListaPropositos( $dbh, $idso ){
-		// Devuelve los propósitos asociados a un registro sujeto-objeto (id)
+		// Devuelve los propósitos asociados a un registro sujeto-objetivo (id)
 		$q = "select * from proposito where sujeto_objeto_id = $idso";
 
 		return obtenerListaRegistros( mysqli_query( $dbh, $q ) );
 	}
 	/* --------------------------------------------------------- */
 	function obtenerListaPropositosSO( $dbh, $idso ){
-		// Devuelve los propósitos de un registro sujeto-objeto 
+		// Devuelve los propósitos de un registro sujeto-objetivo 
 		// y actividades asociadas (id)
 		$propositos = array();
 		$registros = obtenerListaPropositos( $dbh, $idso );
@@ -37,7 +37,7 @@
 	}
 	/* --------------------------------------------------------- */
 	function obtenerPropositosSujetoObjeto( $dbh, $ids, $ido ){
-		// Devuelve los registros de propósitos asociados a un par sujeto-objeto
+		// Devuelve los registros de propósitos asociados a un par sujeto-objetivo
 		$q = "select p.id as id, p.descripcion as descripcion 
 		from proposito p, sujeto s, objeto o, sujeto_objeto so where p.sujeto_objeto_id = so.id 
 		and s.id = so.sujeto_id and o.id = so.objeto_id and s.id = $ids and o.id = $ido";

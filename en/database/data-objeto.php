@@ -1,6 +1,6 @@
 <?php
 	/* --------------------------------------------------------- */
-	/* TFE Life Planner - Acceso a objetos */
+	/* TFE Life Planner - Objectives data functions */
 	/* --------------------------------------------------------- */
 	/* --------------------------------------------------------- */
 	/* --------------------------------------------------------- */
@@ -84,15 +84,15 @@
 			$objeto["id"] = $id;
 			if( $id != 0 ){
 				$res["exito"] = 1;
-				$res["mje"] = "Object created successfully";
+				$res["mje"] = "Objective created successfully";
 				$res["reg"] = $objeto;
 			}else{
 				$res["exito"] = 1;
-				$res["mje"] = "There was a problem creating object";
+				$res["mje"] = "There was a problem creating objective";
 			}
 		}else{ 
 			$res["exito"] = -2;
-			$res["mje"] = "Object name already exists";
+			$res["mje"] = "Objective name already exists";
 		}
 
 		echo json_encode( $res );
@@ -110,15 +110,15 @@
 			$rsp = editarObjeto( $dbh, $objeto );
 			if( $rsp != 0 ){
 				$res["exito"] = 1;
-				$res["mje"] = "Object updated successfully";
+				$res["mje"] = "Objective updated successfully";
 			}else{
 				$res["exito"] = 0;
-				$res["mje"] = "There was a problem updating object";
+				$res["mje"] = "There was a problem updating objective";
 			}
 		}
 		else{ 
 			$rsp = -2;
-			$res["mje"] = "Object name already exists";
+			$res["mje"] = "Objective name already exists";
 		}
 
 		echo json_encode( $res );
@@ -131,12 +131,12 @@
 		$ido = $_POST["elim_objeto"];
 		if( tienePropositosObjeto( $dbh, $ido ) ){
 			$res["exito"] = -1;
-			$res["mje"] = "Cannot delete object, purposes are linked to object";
+			$res["mje"] = "Cannot delete objective, providers are linked to objective";
 		}else{
 			eliminarObjeto( $dbh, $ido );
 			eliminarSO_Objeto( $dbh, $ido );
 			$res["exito"] = 1;
-			$res["mje"] = "Object deleted successfully";
+			$res["mje"] = "Objective deleted successfully";
 		}
 		echo json_encode( $res );
 	}

@@ -398,12 +398,13 @@ function mostrarDatosVentanaCalendario( actividad ){
 }
 /* --------------------------------------------------------- */
 function mostrarDatosVentanaHistorial( actividad ){
-    // Muestra los datos de una actividad en la ventana emergente de historial
+    // Muestra los datos de una actividad en la ventana emergente de historial, y estatus de sujetos-objetos
     mostrarDatosPanelActividad( actividad );
     $("#id_act").val( actividad.id );
     $("#tx_sujeto_act").html( actividad.nsujeto );
     $("#tx_objeto_act").html( actividad.nobjeto );
     $(".tx_resultado_act").html( actividad.resultado );
+    $("#act_fecha").html( actividad.fcalendario );
 }
 /* --------------------------------------------------------- */
 function iniciarBotonBorrarActividad( param ){

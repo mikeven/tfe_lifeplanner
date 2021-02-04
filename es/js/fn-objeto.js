@@ -85,8 +85,8 @@ function aggS_O(){
 function iniciarBotonBorrarObjeto(){
     //Asigna los textos de la ventana de confirmación para borrar un objeto
     iniciarVentanaModal( "btn_borrar_objeto", "btn_canc", 
-                         "Eliminar objeto", 
-                         "¿Confirma que desea eliminar objeto", 
+                         "Eliminar objetivo", 
+                         "¿Confirma que desea eliminar objetivo", 
                          "Confirmar acción" );
 }
 /* --------------------------------------------------------- */

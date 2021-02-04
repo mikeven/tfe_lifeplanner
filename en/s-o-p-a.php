@@ -46,14 +46,14 @@
 						<div class="col-md-8 col-sm-8 col-xs-12">
 							<section class="panel">
 								<header class="panel-heading">
-									<h2 class="panel-title">Subjects - Objects index</h2>
+									<h2 class="panel-title">Subjects - Objectives index</h2>
 								</header>
 								<div id="tabla_areas" class="panel-body">
 									<table id="datatable-default"
 									class="table table-bordered table-striped mb-none" >
 										<thead>
 											<tr>
-												<th width="100%">Subject // Object</th>
+												<th width="100%">Subject // Objective</th>
 											</tr>
 										</thead>
 										<tbody>

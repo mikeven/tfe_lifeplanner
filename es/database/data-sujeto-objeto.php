@@ -148,13 +148,13 @@
 					$res["idss"] = $idss;
 				
 				}else
-					$res["mje"] = "Error al realizar registro de sujeto-objeto";
+					$res["mje"] = "Error al realizar registro de sujeto-objetivo";
 			}
 			else 
-				$res["mje"] = "Registro sujeto-objeto ya existente para esta sesión";
+				$res["mje"] = "Registro sujeto-objetivo ya existente para esta sesión";
 			
 		}else
-			$res["mje"] = "Error al realizar registro de sesión sujeto-objeto";
+			$res["mje"] = "Error al realizar registro de sesión sujeto-objetivo";
 		
 		$res["exito"] = $exito;
 
@@ -171,11 +171,11 @@
 		$propositos = obtenerListaPropositos( $dbh, $_POST["elim_s_o"] );
 		if( count( $propositos ) > 0 ){
 			$res["exito"] = -1;
-			$res["mje"] = "Debe eliminar propósitos del sujeto-objeto primero.";
+			$res["mje"] = "Debe eliminar propósitos del sujeto-objetivo primero.";
 		}else{
 			eliminarSO( $dbh, $_POST["elim_s_o"] );
 			$res["exito"] = 1;
-			$res["mje"] = "Sujeto-Objeto eliminado con éxito";
+			$res["mje"] = "Sujeto-Objetivo eliminado con éxito";
 		}
 		echo json_encode( $res );
 	}

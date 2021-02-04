@@ -17,7 +17,7 @@
 						</div>
 						<div class="info">
 							<i class="fa fa-puzzle-piece"></i>
-							<strong >Object:</strong>
+							<strong >Objective:</strong>
 							<span id="tx_objeto_act"> </span>
 						</div>
 						<div class="info">
@@ -35,12 +35,12 @@
 									<b>Address: </b> <span id="act_dir"></span> 
 								</div>
 								<div> 
-									<b>Task:: </b> <span id="act_tarea_g"></span> 
+									<b>Task: </b> <span id="act_tarea_g"></span> 
 								</div>
 							</div>
 							<div id="info-e" class="data_act_info">
 								<div> 
-									<b>Task:: </b> <span id="act_tarea_e"></span> 
+									<b>Task: </b> <span id="act_tarea_e"></span> 
 								</div>
 							</div>
 							<div id="info-l" class="data_act_info">
@@ -49,6 +49,11 @@
 								</div>
 								<div> 
 									<b>Motive: </b> <span id="act_motivo"></span> 
+								</div>
+							</div>
+							<div id="info-fecha">
+								<div> 
+									<b>Calendar: </b> <span id="act_fecha"></span> 
 								</div>
 							</div>
 						</div>
