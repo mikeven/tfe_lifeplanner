@@ -35,7 +35,7 @@
 				<!-- end: sidebar -->
 				<section role="main" class="content-body">
 					<?php include( "secciones/titulo_pagina.php" ); ?>
-					<h3 class="mt-none">Welcome to SOPA Life Planner</h3>
+					<h3 class="mt-none">Welcome to S.O.P.A. Life Planner</h3>
 				</section>
 			</div>
 			

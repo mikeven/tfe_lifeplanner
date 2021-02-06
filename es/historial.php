@@ -59,7 +59,7 @@
 									class="table table-bordered table-striped mb-none thist">
 										<thead>
 											<tr>
-												<th>Sujeto // Objeto</th>
+												<th>Sujeto // Objetivo</th>
 											</tr>
 										</thead>
 										<tbody>

@@ -16,7 +16,7 @@
 		$q = "select distinct(a.id), a.nombre 
 				from area a, sujeto_objeto so, sesion ss, usuario u  
 				where so.area_id = a.id and so.sesion_id = ss.id 
-				and ss.usuario_id = u.id and u.id = $idu";
+				and ss.usuario_id = u.id and u.id = $idu order by a.nombre asc";
 
 		return obtenerListaRegistros( mysqli_query( $dbh, $q ) );
 	}

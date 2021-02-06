@@ -72,7 +72,7 @@
 							<li>
 								<a href="historial.php">
 									<i class="fa fa-list-alt" aria-hidden="true"></i>
-									<span>Por Sujeto - Objeto</span>
+									<span>Por Sujeto - Objetivo</span>
 								</a>
 							</li>
 							<li>
