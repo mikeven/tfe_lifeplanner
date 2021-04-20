@@ -102,7 +102,9 @@
 							<hr>
 							<?php include( "secciones/notificaciones/alert.html" );?>
 
-							<p class="text-center hidden">¿Aún no posee cuenta? <a href="registro.php">¡Regístrese!</a>
+							<p class="text-center">Don't have an account? 
+								<a href="http://sopalifeplanner.com/register.html">Register!</a>
+							</p>
 
 						</form>
 					</div>

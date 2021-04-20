@@ -1,13 +1,48 @@
-// Acceso
+// Funciones sobre accesos de usuarios
 /*
  * fn-acceso.js
  *
  */
 /* --------------------------------------------------------- */	
 /* --------------------------------------------------------- */
+
 (function() {
 	
 	'use strict';
+
+    jQuery.fn.exists = function(){ return ($(this).length > 0); }
+
+    if ( $("#recover_password").exists() ) {
+
+        $("#recover_password").validate({
+            highlight: function( label ) {
+                $(label).closest('.form-group').removeClass('has-success').addClass('has-error');
+            },
+            success: function( label ) {
+                $(label).closest('.form-group').removeClass('has-error');
+                label.remove();
+            },
+            onkeyup: false,
+            errorPlacement: function( error, element ) {
+                var placement = element.closest('.input-group');
+                if (!placement.get(0)) {
+                    placement = element;
+                }
+                if (error.text() !== '') {
+                    placement.after(error);
+                }
+            },
+            rules : {
+                email : {
+                    required: true,
+                    email: true
+                }
+            },
+            submitHandler: function(form) {
+                recuperarPassword();
+            }
+        });
+    }
 
 	/* Inits */
 	/* --------------------------------------------------------- */
@@ -87,7 +122,7 @@ function log_in(){
 	$.ajax({
         type:"POST",
         url:"database/data-acceso.php",
-        data:form.serialize(), //data invocación: #usr_login (index.php)
+        data:form.serialize(), //data invocación: usr_login (index.php)
         beforeSend: function() {
         	$(".alert").removeClass("alert-danger");
         	$(".alert").removeClass("alert-success");
@@ -100,6 +135,26 @@ function log_in(){
 				window.location = "home.php";
 			else
 				alertaMensaje( res.exito, res.mje );
+        }
+    });
+}
+/* --------------------------------------------------------- */
+function recuperarPassword(){
+    //Invoca al servidor para iniciar la recuperación de contraseña
+    var form = $('#recover_password');
+    $.ajax({
+        type:"POST",
+        url:"database/data-acceso.php",
+        data:form.serialize(), //data invocación: usr_passwrecover (index.php)
+        beforeSend: function() {
+            $(".alert").removeClass("alert-danger");
+            $(".alert").removeClass("alert-success");
+            $(".alert").hide();
+        },
+        success: function( response ){
+            console.log( response );
+            res = jQuery.parseJSON( response );
+            alertaMensaje( res.exito, res.mje );
         }
     });
 }

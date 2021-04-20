@@ -23,6 +23,14 @@
 		return mysqli_affected_rows( $dbh );
 	}
 	/* --------------------------------------------------------- */
+	function actualizarTokenUsuario( $dbh, $idu, $token ){
+		// Actualiza la fecha de último inicio de sesión de un usuario
+		$q = "update usuario set token = '$token' where id = $idu";
+		
+		$data = mysqli_query( $dbh, $q );
+		return mysqli_affected_rows( $dbh );
+	} 
+	/* --------------------------------------------------------- */
 	function actualizarDatosPersonales( $dbh, $usuario ){
 		// Actualiza los cámpos de datos personales de un registro de usuario
 		$q = "update usuario set nombre = '$usuario[nombre]', 

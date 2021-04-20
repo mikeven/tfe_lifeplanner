@@ -86,22 +86,28 @@
 				</ul>
 			</nav>
 
+			<?php if( $usuario["id"] == 2 ) { ?>
+
 			<hr class="separator" />
 
-			<div class="sidebar-widget widget-tasks hidden">
+			<div class="sidebar-widget widget-tasks">
 				<div class="widget-header">
-					<h6>Projects</h6>
+					<h6>Administración</h6>
 					<div class="widget-toggle">+</div>
 				</div>
 				<div class="widget-content">
 					<ul class="list-unstyled m-none">
-						<li><a href="#">JSOFT HTML5 Template</a></li>
-						<li><a href="#">Tucson Template</a></li>
-						<li><a href="#">JSOFT Admin</a></li>
+						<li>
+							<a href="usuarios.php">
+								<i class="fa fa-users" aria-hidden="true"></i>
+								<span>Usuarios Registrados</span>
+							</a>
+						</li>
 					</ul>
 				</div>
 			</div>
-
+			<?php } ?>
+			
 			<hr class="separator" />
 
 			<div class="sidebar-widget widget-stats hidden">

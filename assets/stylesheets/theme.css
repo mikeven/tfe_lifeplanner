@@ -1589,7 +1589,7 @@ html.header-dark .header .input-search .input-group-btn .btn-default {
 }
 
 .sidebar-left hr.separator {
-	background: none;
+	background: #ffffff;
 	margin: 20px 10px 20px;
 }
 
@@ -5246,7 +5246,7 @@ html.header-dark .userbox .dropdown-menu a {
 .sidebar-widget .widget-header h6 {
 	font-size: 13px;
 	font-size: 1.3rem;
-	color: #465162;
+	color: #ffffff;
 	font-weight: 600;
 	margin: 0;
 	padding: 0;
@@ -5280,7 +5280,7 @@ html.header-dark .userbox .dropdown-menu a {
 	font-size: 1.7rem;
 	line-height: 13px;
 	line-height: 1.3rem;
-	color: #465162;
+	color: #ffffff;
 	position: absolute;
 	right: 0;
 	top: 0;
@@ -5323,18 +5323,18 @@ html.header-dark .userbox .dropdown-menu a {
 }
 
 .sidebar-widget.widget-tasks ul li a {
-	color: #abb4be;
+	color: #ffffff;
 	display: block;
 	margin: 0 -25px 0 -30px;
 	padding: 10px 0 10px 55px;
 }
 
 .sidebar-widget.widget-tasks ul li a:hover {
-	background: #21262d;
+	background: #2f75c9;
 	text-decoration: none;
 }
 
-.sidebar-widget.widget-tasks ul li:before {
+.sidebar-widget.widget-tasks ul li:before_ {
 	border: 5px solid #cccccc;
 	border-radius: 100px;
 	content: '';

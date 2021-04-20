@@ -26,26 +26,27 @@
 		return mail( $e_mail, $asunto, $mensaje, $cabeceras );
 	}
 	/* --------------------------------------------------------- */
-	function enviarPasswordEmail( $e_mail, $pass ){
+	function enviarPasswordEmail( $e_mail, $token ){
 		// Envía un mensaje por email con contraseña de usuario
 
-		$asunto = "Envío de contraseña";
-		$oemail = "cursos@lydianlionacademy.com";
+		$asunto = "Reestablecimiento de contraseña";
+		$oemail = "registros@sopalifeplanner.com";
 		
-		$cabeceras = "Reply-To: Lydian Lion Academy <$oemail>\r\n"; 
-  		$cabeceras .= "Return-Path: Lydian Lion Academy <$oemail>\r\n";
-  		$cabeceras .= "From: Lydian Lion Academy <$oemail>\r\n"; 
-		$cabeceras .= "Organization: Lydian Lion Academy\r\n";
+		$cabeceras = "Reply-To: SOPA Life Planner <$oemail>\r\n"; 
+  		$cabeceras .= "Return-Path: SOPA Life Planner <$oemail>\r\n";
+  		$cabeceras .= "From: SOPA Life Planner <$oemail>\r\n"; 
+		$cabeceras .= "Organization: SOPA Life Planner\r\n";
 	  	$cabeceras .= "X-Priority: 3\r\n";
 	  	$cabeceras .= "X-Mailer: PHP". phpversion() ."\r\n"; 
 		$cabeceras .= 'MIME-Version: 1.0' . "\r\n";
 		$cabeceras .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
         
-        $mensaje .= "Se ha solicitado la recuperación de contraseña desde Lidian Lion Academy <br>";
-        $mensaje .= "Tu contraseña es: $pass<br>";
-        $mensaje .= "===================================================== <br>";
+        $mensaje .= "Se ha solicitado reestablecer su contraseña desde SOPA Life Planner <br>";
+        $mensaje .= "=================================================================== <br>";
         $mensaje .= "<br><br>";
-        $mensaje .= "<a href='http://lydianlionacademy.com/cursos/login.php'>Inicia sesión en Lydian Lion Academy<a>";
+        $mensaje .= "<p>Para generar una nueva contraseña haga clic en el siguiente enlace: </p>";
+        $mensaje .= "<br>";
+        $mensaje .= "<a href='http://sopalifeplanner.com/password-reset.php?token=$token'>Reestablecer contraseña</a>";
 
 		return mail( $e_mail, $asunto, $mensaje, $cabeceras );
 	}
@@ -104,6 +105,13 @@
 		return $data_login;
 	}
 	/* --------------------------------------------------------- */
+	function obtenerTokenUsuarioNuevo( $valor ){
+		//Genera un código provisional enviado por email para confirmar y verificar cuenta
+		$fecha 	= date_create();
+		$date 	= date_timestamp_get( $fecha );
+		return sha1( md5( $date.$valor ) );
+	}
+	/* --------------------------------------------------------- */
 	function checkEmailLogin( $dbh, $email ){
 		// Devuelve válido si email está registrado
 
@@ -116,8 +124,13 @@
 		$nrows 	= mysqli_num_rows( $data );
 
 		if( $nrows > 0 ) {
-			$rsp["valido"] = true;
-			$rsp["reg"] = $data_u;
+
+			$rsp["valido"] 	= true;
+			$rsp["reg"] 	= $data_u;
+			if( $rsp["reg"]["token"] == NULL ){
+				$rsp["reg"]["token"] 	= obtenerTokenUsuarioNuevo( $data_u["password"] );
+				actualizarTokenUsuario( $dbh,  $rsp["reg"]["id"], $rsp["reg"]["token"] );
+			}
 		}
 
 		return $rsp;
@@ -141,7 +154,7 @@
 	/* --------------------------------------------------------- */
 	function soloAdmin(){
 		// Redirecciona a la página de inicio en caso de no ser usuario autorizado
-		if( $_SESSION["user"]["rol"] != "administrador" ) 
+		if( $_SESSION["user"]["admin"] != true ) 
 			echo "<script> window.location = 'home.php'</script>";
 	}
 	/* --------------------------------------------------------- */
@@ -168,14 +181,16 @@
 	}
 	/* --------------------------------------------------------- */
 	// Recuperar contraseña (asinc)
-	if( isset( $_POST["lyrpass"] ) ){ 
+	if( isset( $_POST["usr_passwrecover"] ) ){ 
 		// Invocación desde: js/fn-usuario.js
 		include( "bd.php" );
+		include( "data-usuario.php" );
+
 		$rsp = checkEmailLogin( $dbh, $_POST["email"] );
 		if( $rsp["valido"] ){
-			enviarPasswordEmail( $_POST["email"], $rsp["reg"]["password"] );
+			enviarPasswordEmail( $_POST["email"], $rsp["reg"]["token"] );
 			$res["exito"] = 1;
-			$res["mje"] = "Se ha enviado un mensaje a tu correo electrónico con tu contraseña";
+			$res["mje"] = "Se ha enviado un mensaje a su email con instrucciones para reestablecer su contraseña";
 		} else {
 			$res["exito"] = 0;
 			$res["mje"] = "No existe cuenta asociada a este correo electrónico, verifique sus datos e intente nuevamente";
@@ -212,4 +227,5 @@
 		echo 1;		
 	}
 	/* --------------------------------------------------------- */
+	$año_curso = date ( "Y" );
 ?>

@@ -12,7 +12,7 @@
 	<head>
 		<!-- Título -->
 		<title>Ingreso | SOPA Life Planner</title>
-		<?php include( "secciones/meta-tags.html" );?>
+		<?php include( "secciones/meta-tags.html" ); ?>
 
 		<!-- Mobile Metas -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -58,7 +58,7 @@
 		<section class="body-sign">
 			<div class="center-sign">
 				<a href="/" class="logo pull-left">
-					<img src="../img/logo-sopa-blanco.png" height="65" alt="Porto Admin" />
+					<img src="../img/logo-sopa-blanco.png" height="65" alt="SOPA Life Planner" />
 				</a>
 
 				<div class="panel panel-sign">
@@ -86,12 +86,11 @@
 							<div class="form-group mb-lg">
 								<div class="clearfix">
 									<label class="pull-left">Contraseña</label>
-									<a href="pages-recover-password.html" 
-									class="pull-right hidden">¿Olvidó su contraseña?</a>
+									<a href="recuperar-password.php" 
+									class="pull-right">¿Olvidó su contraseña?</a>
 								</div>
 								<div class="input-group input-group-icon">
-									<input name="password" type="password" 
-									class="form-control input-lg"/>
+									<input name="password" type="password" class="form-control input-lg"/>
 									<span class="input-group-addon">
 										<span class="icon icon-lg">
 											<i class="fa fa-lock"></i>
@@ -116,14 +115,16 @@
 							<hr>
 							<?php include( "secciones/notificaciones/alert.html" );?>
 
-							<p class="text-center hidden">¿Aún no posee cuenta? <a href="registro.php">¡Regístrese!</a>
+							<p class="text-center">¿Aún no posee cuenta? 
+								<a href="http://sopalifeplanner.com/register.html">¡Regístrese!</a>
+							</p>
 
 						</form>
 					</div>
 				</div>
 
 				<p class="text-center text-muted mt-md mb-md">
-					&copy; SOPA Life Planner 2020.
+					&copy; SOPA Life Planner <?php echo $año_curso; ?>.
 				</p>
 			</div>
 		</section>
